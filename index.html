@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robalp — Linky, de la maison au cloud</title>
+<meta name="description" content="Un développeur citoyen a fait une application utile avec Claude Code ; la plateforme l'a industrialisée de bout en bout. Le cas Linky : architecture, golden path, critères d'acceptation, livraisons et erreurs mesurées.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Disposition : une colonne de lecture (68 ch), bandes pleine largeur aux sections de mesure ;
+   l'accent est la couleur d'un compteur Linky (ambre), le fond un ardoise légèrement bleuté. */
+:root {
+  --bg: #f6f5f1; --fg: #1d2330; --muted: #5a6273; --line: #d9d7cf;
+  --panel: #ffffff; --accent: #d98c1f; --accent-ink: #7a4b05; --slate: #243247; --slate-fg: #eef1f5;
+  --ok: #2f7d4f;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #161a22; --fg: #e8e9ec; --muted: #a1a8b5; --line: #30374a;
+  --panel: #1f2430; --accent: #f0a63a; --accent-ink: #ffd79a; --slate: #0f131b; --slate-fg: #e8e9ec; --ok: #6fc48f;
+  color-scheme: dark;
+} }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body); }
+.wrap { max-width: 72rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: .6rem; }
+h3 { font-size: 1.15rem; margin-bottom: .3rem; }
+p { max-width: 68ch; margin: 0 0 1rem; }
+a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.eyebrow { font: 600 .78rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: .9rem; }
+header.site { border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; padding-block: 1rem; gap: 1rem; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-weight: 700; font-size: 1.25rem; letter-spacing: .02em; }
+.brand small { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: .8rem; margin-left: .6rem; }
+nav a { color: var(--muted); text-decoration: none; margin-left: 1.2rem; font-size: .95rem; }
+nav a:hover { color: var(--fg); }
+.hero .wrap { padding-block: 4rem 3rem; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: end; }
+.hero p.lead { font-size: 1.2rem; color: var(--muted); max-width: 40ch; }
+.hero .kw { display: flex; gap: .6rem; flex-wrap: wrap; font-family: var(--mono); font-size: .85rem; }
+.hero .kw span { border: 1px solid var(--line); border-radius: 999px; padding: .25rem .7rem; }
+section { padding-block: 3.5rem; }
+section + section { border-top: 1px solid var(--line); }
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; counter-reset: etape; }
+.flow .step { background: var(--panel); border: 1px solid var(--line); padding: 1.1rem 1.2rem; position: relative; min-width: 0; }
+.flow .step::before { counter-increment: etape; content: counter(etape); font: 500 .8rem var(--mono); color: var(--accent-ink); display: block; margin-bottom: .5rem; }
+.flow .step p { font-size: .95rem; color: var(--muted); margin: 0; }
+.flow .step.house { border-left: 4px solid var(--accent); }
+.note { font-size: .95rem; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 1rem; max-width: 68ch; }
+.band { background: var(--slate); color: var(--slate-fg); }
+.band h2, .band .eyebrow { color: var(--slate-fg); }
+.band .eyebrow { color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.stat { border-top: 2px solid var(--accent); padding-top: .8rem; min-width: 0; }
+.stat b { display: block; font: 500 2.4rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.stat span { font-size: .9rem; opacity: .8; }
+.chart { overflow-x: auto; margin-top: 1rem; }
+.chart svg { width: 100%; max-width: 100%; height: auto; display: block; }
+.chart text { font: 500 11px var(--mono); fill: currentColor; }
+.band p { color: var(--slate-fg); opacity: .85; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+.table { overflow-x: auto; margin-top: 1.2rem; }
+th, td { text-align: left; padding: .55rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td.n { font-family: var(--mono); color: var(--muted); white-space: nowrap; }
+code { font-family: var(--mono); font-size: .9em; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.cards article { min-width: 0; }
+.cards article p { font-size: .95rem; color: var(--muted); }
+.cards .proof { font-family: var(--mono); font-size: .82rem; color: var(--ok); }
+footer { border-top: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+footer .wrap { padding-block: 2rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+footer code { user-select: all; }
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+  .flow, .stats, .cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) { .flow, .stats, .cards { grid-template-columns: 1fr; } nav a { margin-left: .8rem; } }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <div class="brand">Robalp <small>robalp.fr</small></div>
+  <nav><a href="#cas">Le cas Linky</a><a href="#chemin">Golden path</a><a href="#criteres">Critères</a><a href="#mesure">Mesuré</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">Platform engineering, grandeur nature</div>
+    <h1>Une idée métier en production en une après-midi, par la personne qui a l'idée.</h1>
+  </div>
+  <div>
+    <p class="lead">Un développeur citoyen a fait une application utile avec Claude Code ; la plateforme l'a industrialisée de bout en bout, sans ticket, avec chaque équipe à sa place. Et on mesure ce qu'on gagne comme ce qu'on casse.</p>
+    <div class="kw"><span>chemin</span><span>autonomie</span><span>garde-fous</span></div>
+  </div>
+</div></section>
+
+<section id="cas"><div class="wrap">
+  <div class="eyebrow">Le cas Linky</div>
+  <h2>La maison joue l'on-prem. Rien n'en sort, sauf des kWh agrégés.</h2>
+  <p>Un compteur Linky, des panneaux solaires, une VM de collecte sur la box, un PC avec un GPU pour le calcul et un modèle de langage local. Les données brutes et le modèle restent à la maison. Ce qui part vers le cloud est une couche « partage » (kilowattheures par jour et par heure, par appareil), contrôlée avant envoi et journalisée.</p>
+  <div class="flow">
+    <div class="step house"><h3>Collecte</h3><p>Le compteur est lu en temps réel ; la VM de la box stocke les mesures et sert les tableaux de bord de la maison.</p></div>
+    <div class="step house"><h3>Calcul</h3><p>Chaque nuit, le PC de calcul copie les jours complets, transforme (dbt sur DuckDB) et explique la consommation : appareils, nuit, prévisions.</p></div>
+    <div class="step"><h3>Contrôle et envoi</h3><p>Un contrôle refuse tout fichier hors contrat ou ressemblant à une donnée personnelle, puis un geste volontaire envoie la couche partage vers un stockage Azure, avec manifeste.</p></div>
+    <div class="step"><h3>Application nomade</h3><p>Un conteneur sans secret ni base, qui lit la couche partage et répond en moins d'une seconde. Déployable n'importe où.</p></div>
+  </div>
+  <p class="note" style="margin-top:1.5rem">En production, le rôle du contrôle avant envoi est tenu par un outil de classification des données (type Purview) ; ici, il est minimal, versionné et testé, et chaque envoi emporte son rapport.</p>
+</div></section>
+
+<section id="chemin"><div class="wrap">
+  <div class="eyebrow">La golden path</div>
+  <h2>Quatre minutes, aucune équipe sollicitée : leurs règles étaient déjà dans le chemin.</h2>
+  <div class="flow">
+    <div class="step"><h3>Le portail</h3><p>Dans Port.io, le développeur demande une fonctionnalité ; le risque faible est validé seul, sans ticket.</p></div>
+    <div class="step"><h3>Le bac à sable</h3><p>« Obtenir mon bac à sable » : une VM Terraform apparaît (sans IP publique, arrêt automatique à 19 h, budget), avec Claude Code et les compétences de l'équipe déjà installées.</p></div>
+    <div class="step"><h3>Le travail</h3><p>Un prompt : « ajoute une carte, un test, pousse le code, ouvre une pull request ». Claude Code code, teste (JUnit), pousse.</p></div>
+    <div class="step"><h3>Le pipeline</h3><p>Tests, analyse de sécurité de l'image, aperçu, double validation métier et plateforme, puis déploiement par la plateforme seulement.</p></div>
+  </div>
+</div></section>
+
+<section id="criteres"><div class="wrap">
+  <div class="eyebrow">Critères d'acceptation</div>
+  <h2>Ce que la plateforme vérifie avant de mettre l'application en production.</h2>
+  <p>Chaque critère est automatisable dans le pipeline ; la colonne « preuve » dit où la lire. Condition de mise en production : critères 1 à 9 verts ; 10 à 12 vérifiés une fois puis suivis par la supervision.</p>
+  <div class="table"><table>
+    <thead><tr><th>#</th><th>Critère</th><th>Comment vérifier</th><th>Preuve</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td>Les tests passent</td><td>suite de tests dans l'image, code de sortie 0</td><td>rapport JUnit, 0 échec</td></tr>
+      <tr><td class="n">2</td><td>Démarre sans secret et sans données</td><td><code>/sante</code> répond « sans données » en moins de 10 s</td><td>journal du pipeline</td></tr>
+      <tr><td class="n">3</td><td>Écoute sur <code>PORT</code></td><td>port fourni par la plateforme ; valeur invalide → arrêt immédiat</td><td>journal du pipeline</td></tr>
+      <tr><td class="n">4</td><td>Affiche les données fournies</td><td>page d'accueil en moins d'une seconde à froid</td><td>test HTTP</td></tr>
+      <tr><td class="n">5</td><td>Aucun appel sortant après le démarrage</td><td>réseau coupé : toutes les pages répondent</td><td>règle réseau de la plateforme</td></tr>
+      <tr><td class="n">6</td><td>Non root, en lecture seule</td><td>système de fichiers en lecture seule, utilisateur sans privilège</td><td>journal du pipeline</td></tr>
+      <tr><td class="n">7</td><td>Image saine</td><td>aucune faille critique corrigeable hors exception datée ; SBOM disponible</td><td>pièces de la release</td></tr>
+      <tr><td class="n">8</td><td>Image identifiée par empreinte</td><td>déploiement par <code>@sha256</code>, jamais un tag mobile</td><td>note de version</td></tr>
+      <tr><td class="n">9</td><td>Aucune donnée personnelle</td><td>seules les colonnes du contrat « partage » ; contrôle joint à chaque envoi</td><td>contrôle et manifeste de l'envoi</td></tr>
+      <tr><td class="n">10</td><td>Santé exploitable</td><td><code>/sante</code> renvoie profil, version, statut</td><td>sonde de la plateforme</td></tr>
+      <tr><td class="n">11</td><td>Taille et mémoire</td><td>image ≤ 150 Mo ; moins de 150 Mo de RAM avec deux ans de données</td><td>métriques</td></tr>
+      <tr><td class="n">12</td><td>Journal lisible</td><td>sortie standard, une ligne par requête, sans donnée personnelle</td><td>journal de la plateforme</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="mesure" class="band"><div class="wrap">
+  <div class="eyebrow">Ce que ça change, mesuré</div>
+  <h2>On compte les livraisons. On compte aussi ce qu'on a cassé.</h2>
+  <p>Chiffres au 5 novembre 2026, sur trois dépôts, depuis le 17 octobre. Les erreurs sont celles consignées dans le journal public de l'équipe, par release, avec leur cause et leur correctif.</p>
+  <div class="stats">
+    <div class="stat"><b>143</b><span>pull requests fusionnées en 20 jours</span></div>
+    <div class="stat"><b>60</b><span>releases de production, chacune avec son rapport de sécurité</span></div>
+    <div class="stat"><b>80</b><span>PR fusionnées le 2 novembre, premier jour de délégation encadrée</span></div>
+    <div class="stat"><b>9,8</b><span>erreurs consignées pour 100 PR, dont 4,2 vues en production</span></div>
+  </div>
+  <div class="chart" aria-label="Pull requests fusionnées par jour, du 17 octobre au 5 novembre 2026">
+    <svg viewBox="0 0 720 220" role="img">
+      <g id="barres"></g>
+      <line x1="40" y1="190" x2="710" y2="190" stroke="currentColor" stroke-opacity=".4"/>
+      <text x="40" y="208" text-anchor="start">17 oct.</text>
+      <text x="710" y="208" text-anchor="end">5 nov.</text>
+      <text x="36" y="194" text-anchor="end">0</text>
+      <text x="36" y="34" text-anchor="end">80</text>
+      <line x1="528" y1="20" x2="528" y2="190" stroke="currentColor" stroke-opacity=".5" stroke-dasharray="3 4"/>
+      <text x="522" y="20" text-anchor="end" opacity=".8">délégation encadrée (1er nov.)</text>
+    </svg>
+  </div>
+</div></section>
+
+<section id="tient"><div class="wrap">
+  <div class="eyebrow">Ce qui tient debout</div>
+  <h2>La vitesse vient d'une chaîne qui bloque, pas d'une confiance aveugle.</h2>
+  <div class="cards">
+    <article><h3>Des releases qui prouvent</h3><p>Chaque release de production embarque le rapport de failles, la nomenclature logicielle (SBOM) et les exceptions datées. Les images sont signées et déployées par empreinte.</p><p class="proof">cosign verify · gh attestation verify</p></article>
+    <article><h3>Une porte, trois paliers</h3><p>L'IA passe par les mêmes portes que tout le monde : un compte sans privilège, une commande unique qui journalise chaque action, un retour arrière écrit et prouvé pour chaque type d'action. Les secrets restent hors de sa portée.</p><p class="proof">journal en ajout seul · plan annoncé avant apply</p></article>
+    <article><h3>Un journal des erreurs</h3><p>Chaque erreur de l'IA ou de la chaîne est consignée avec sa release, sa gravité, qui l'a détectée et le correctif. Le taux d'erreur par release est un tableau de bord, pas un secret.</p><p class="proof">qualite/erreurs.csv · tableau de bord Grafana</p></article>
+  </div>
+  <p class="note" style="margin-top:1.8rem">Le banc de non-régression Keycloak de l'équipe est public : <a href="https://github.com/greenrabbyte-lab/keycloak-non-regression">greenrabbyte-lab/keycloak-non-regression</a>.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>Robalp · <code>romain@robalp.fr</code></div>
+  <div>Aucune donnée personnelle sur ce site : des kilowattheures, des méthodes et des chiffres de livraison.</div>
+</div></footer>
+
+<script>
+(function () {
+  var serie = [["17",3],["18",0],["19",2],["20",1],["21",2],["22",2],["23",0],["24",0],["25",2],["26",5],["27",2],["28",0],["29",4],["30",6],["31",14],["1",0],["2",80],["3",1],["4",12],["5",7]];
+  var g = document.getElementById("barres"), x0 = 40, largeur = 670, h0 = 190, haut = 160, max = 80;
+  var pas = largeur / serie.length, ns = "http://www.w3.org/2000/svg";
+  serie.forEach(function (d, i) {
+    var h = d[1] / max * haut, r = document.createElementNS(ns, "rect");
+    r.setAttribute("x", x0 + i * pas + 3); r.setAttribute("y", h0 - h); r.setAttribute("width", pas - 6); r.setAttribute("height", Math.max(h, d[1] ? 1 : 0));
+    r.setAttribute("fill", i >= 15 ? "#f0a63a" : "#8a93a6"); g.appendChild(r);
+    if (d[1] >= 5) { var t = document.createElementNS(ns, "text"); t.setAttribute("x", x0 + i * pas + pas / 2); t.setAttribute("y", h0 - h - 5); t.setAttribute("text-anchor", "middle"); t.textContent = d[1]; g.appendChild(t); }
+  });
+})();
+</script>
+</body>
+</html>
