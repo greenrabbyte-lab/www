@@ -6,7 +6,7 @@ code_court: "EN"
 nom_langue: "English"
 
 site:
-  description: "Platform engineering explained through practice: each principle as a company puts it in place, then as it runs on a home lab built for about €70."
+  description: "Platform engineering explained through practice: each principle as a company puts it in place, then as it runs on a lab built at home with €70 of hardware."
 
 navigation:
   aller_au_contenu: "Skip to content"
@@ -47,9 +47,9 @@ achats:
       prix: "already at home"
 
 image_partage:
-  alt: "Platform engineering, built at home for €70, on robalp.fr"
-  titre: ["Platform engineering,", "built at home", "for €70."]
-  sous_titre: ["Portal, golden paths, AI agents with guardrails: every method,", "with proof that runs."]
+  alt: "Platform engineering, at home? on robalp.fr"
+  titre: ["Platform engineering,", "at home?"]
+  sous_titre: ["Portal, golden paths, AI agents with guardrails: every method,", "with proof that runs, on a lab with €70 of hardware."]
 
 introuvable:
   titre: "This page doesn't exist"

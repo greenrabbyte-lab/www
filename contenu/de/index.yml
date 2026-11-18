@@ -2,12 +2,12 @@
 # Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
 
 meta:
-  titre: "Platform Engineering, zu Hause aufgebaut für 70 € | Robalp"
-  description: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken, Observability: jede Methode des Platform Engineering, belegt an einem Heimlabor für rund 70 €."
+  titre: "Platform Engineering, zu Hause? | Robalp"
+  description: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken, Observability: jede Methode des Platform Engineering, belegt an einem zu Hause aufgebauten Labor mit 70 € Hardware. Freie, kostenlose Website."
 
 accroche:
-  titre: "Platform Engineering, zu Hause aufgebaut für 70 €."
-  chapeau: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode des Platform Engineering mit einem Nachweis, der läuft."
+  titre: "Platform Engineering, zu Hause?"
+  chapeau: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode des Platform Engineering mit einem Nachweis, der auf einem zu Hause aufgebauten Labor mit 70 € Hardware läuft."
   bouton_principal: "Was ist das eigentlich?"
   bouton_secondaire: "Zur Architektur"
 

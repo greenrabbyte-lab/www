@@ -2,12 +2,12 @@
 # Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
 
 meta:
-  titre: "Platform engineering, built at home for €70 | Robalp"
-  description: "Self-service portal, golden paths, AI agents with guardrails, observability: every platform engineering method, proven on a home lab built for about €70."
+  titre: "Platform engineering, at home? | Robalp"
+  description: "Self-service portal, golden paths, AI agents with guardrails, observability: every platform engineering method, proven on a lab built at home with €70 of hardware. Free and open site."
 
 accroche:
-  titre: "Platform engineering, built at home for €70."
-  chapeau: "Self-service portal, golden paths, AI agents with guardrails: every platform engineering method, with proof that runs."
+  titre: "Platform engineering, at home?"
+  chapeau: "Self-service portal, golden paths, AI agents with guardrails: every platform engineering method, with proof that runs on a lab built at home with €70 of hardware."
   bouton_principal: "What is it, really?"
   bouton_secondaire: "See the architecture"
 
