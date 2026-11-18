@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le portail développeur, en entreprise et au labo | Robalp</title>
+<meta name="description" content="À quoi sert un portail développeur, comment le mettre en place, et ce qu&#x27;il donne sur un labo : Port branché sur GitHub et Azure, un bac à sable prêt en environ 8 minutes.">
+<link rel="canonical" href="https://www.robalp.fr/portail.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Robalp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Le portail développeur, en entreprise et au labo | Robalp">
+<meta property="og:description" content="À quoi sert un portail développeur, comment le mettre en place, et ce qu&#x27;il donne sur un labo : Port branché sur GitHub et Azure, un bac à sable prêt en environ 8 minutes.">
+<meta property="og:url" content="https://www.robalp.fr/portail.html">
+<meta property="og:image" content="https://www.robalp.fr/assets/partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Platform engineering, en vrai, sur robalp.fr">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icone.svg" type="image/svg+xml">
+<link rel="preload" href="assets/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://www.robalp.fr/#site",
+   "url": "https://www.robalp.fr/",
+   "name": "Robalp",
+   "inLanguage": "fr-FR",
+   "description": "Le platform engineering expliqué par le concret : chaque principe tel qu'on le met en place en entreprise, puis tel qu'il tourne sur un labo maison monté avec environ 70 € et des GPU recyclés."
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://www.robalp.fr/portail.html#article",
+   "url": "https://www.robalp.fr/portail.html",
+   "headline": "Le portail développeur",
+   "description": "À quoi sert un portail développeur, comment le mettre en place, et ce qu'il donne sur un labo : Port branché sur GitHub et Azure, un bac à sable prêt en environ 8 minutes.",
+   "inLanguage": "fr-FR",
+   "mainEntityOfPage": "https://www.robalp.fr/portail.html",
+   "isPartOf": {
+    "@id": "https://www.robalp.fr/#site"
+   },
+   "about": {
+    "@type": "Thing",
+    "name": "Platform engineering"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Accueil",
+     "item": "https://www.robalp.fr/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Le portail développeur",
+     "item": "https://www.robalp.fr/portail.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script src="assets/compteur.js" defer></script>
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="tete"><div class="cadre">
+  <a class="marque" href="index.html" aria-label="Robalp, accueil">robalp</a>
+  <nav aria-label="Pages du site"><a href="en-vrai.html">En vrai</a><a href="portail.html" aria-current="page">Portail</a><a href="golden-paths.html">Golden paths</a><a href="agents-ia.html">Agents IA</a><a href="observabilite.html">Observabilité</a><a href="architecture.html">Architecture</a></nav>
+</div></header>
+
+<main id="contenu" class="cadre">
+<div class="entree">
+  <nav class="fil" aria-label="Fil d'Ariane"><ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Le portail développeur</li></ol></nav>
+  <h1>Le portail développeur</h1>
+  <p class="chapeau">Le portail est la porte d'entrée de la plateforme. On y trouve ce qui existe, on y demande ce dont on a besoin et on y suit sa demande.</p>
+</div>
+<section class="duo">
+  <div>
+    <h2>En entreprise</h2>
+    <ul>
+      <li>Un catalogue : chaque application, son équipe, ses environnements, son état.</li>
+      <li>Des actions en libre-service, avec une approbation seulement là où le risque la justifie.</li>
+      <li>L'état de chaque demande, visible par la personne qui l'a faite.</li>
+      <li>Des outils comme Port, Backstage ou Cortex. Le choix compte moins que ce qu'il y a derrière : sans golden path, le portail reste une vitrine.</li>
+    </ul>
+  </div>
+  <div class="labo">
+    <h2>Au labo</h2>
+    <ul>
+      <li>Port, en plan gratuit, branché sur les dépôts GitHub du labo.</li>
+      <li>Un catalogue « Bac à sable » : une machine par personne, avec son état de préparation lu sur la machine elle-même.</li>
+      <li>« Obtenir mon bac à sable » part sans approbation. « Libérer mon bac à sable » en demande une : détruire se valide, créer non.</li>
+      <li>La demande passe de « demande » à « prêt » en environ 8 minutes, et chaque étape de la préparation s'affiche dans Port.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="bloc">
+  <h2>Le chemin d'une demande</h2>
+  <ol class="trajet">
+    <li><strong>Port</strong>Le formulaire envoie la demande.</li>
+    <li><strong>GitHub Actions</strong>Le workflow du bac à sable démarre et se connecte à Azure par fédération d'identité (OIDC), sans mot de passe Azure stocké.</li>
+    <li><strong>Azure</strong>Terraform crée la machine et ses garde-fous : budget, alertes, arrêt automatique.</li>
+    <li><strong>Retour dans Port</strong>Le workflow met à jour la demande à chaque étape et donne le lien vers son exécution.</li>
+  </ol>
+</section>
+
+<section class="bloc">
+  <h2>Ce qu'on en retient</h2>
+  <ul>
+    <li>Commencer par une seule action vraiment utile. Ici, obtenir un environnement de travail.</li>
+    <li>Garder l'approbation pour ce qui détruit ou coûte. Le reste doit partir tout seul.</li>
+    <li>Le portail ne lit pas Azure directement : c'est le workflow qui le tient à jour. C'est suffisant pour une machine par demande, et à revoir si le catalogue grandit.</li>
+    <li>La première mise en route a échoué : l'action restait « en cours » sans rien déclencher, à cause d'une mauvaise méthode d'intégration. L'erreur est consignée dans le journal du labo, avec son correctif.</li>
+  </ul>
+</section>
+<nav class="suite" aria-label="Pages voisines"><a href="en-vrai.html"><span>Précédent</span><strong>C'est quoi, en vrai ?</strong></a><a class="apres-page" href="golden-paths.html"><span>Suivant</span><strong>Les golden paths</strong></a></nav>
+</main>
+
+<footer class="pied"><div class="cadre">
+  <div class="compteur">
+    <p class="compteur-titre">Cette page, mesurée par votre navigateur</p>
+    <p class="compteur-valeurs"><span id="poids">…</span><span id="energie"></span></p>
+    <p class="compteur-note"><span id="fichiers">Les fichiers</span> transférés. Énergie estimée avec le <a href="https://sustainablewebdesign.org/estimating-digital-emissions/">modèle Sustainable Web Design v4</a>, à 0,30 kWh par Go.</p>
+    <noscript><p class="compteur-note">Le compteur a besoin de JavaScript.</p></noscript>
+  </div>
+  <div class="pied-texte">
+    <p>Aucune donnée personnelle sur ce site : des kilowattheures, des méthodes et des chiffres de livraison.</p>
+    <p>Contact : <a href="mailto:romain@robalp.fr">romain@robalp.fr</a></p>
+    <p>Code du site : <a href="https://github.com/greenrabbyte-lab/www">greenrabbyte-lab/www</a></p>
+  </div>
+</div></footer>
+</body>
+</html>
