@@ -1,0 +1,20 @@
+# Fiche du catalogue (format Backstage), lue par les deux portails (Backstage et Port.io).
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: www
+  title: Site www.robalp.fr
+  description: Site vitrine trilingue, généré depuis contenu/ et publié sur GitHub Pages.
+  annotations:
+    github.com/project-slug: greenrabbyte-lab/www
+    robalp.fr/risque: faible
+    robalp.fr/classification: public
+  tags: [site-statique, python]
+  links:
+    - url: https://www.robalp.fr
+      title: Le site
+spec:
+  type: website
+  lifecycle: production
+  owner: group:default/plateforme
+  system: plateforme

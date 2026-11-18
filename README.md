@@ -51,3 +51,8 @@ langues, `hreflang`), `llms.txt` et les données structurées de chaque page. À
 `outils/indexnow.py` annonce les adresses aux moteurs qui suivent IndexNow (Bing, Yandex, Seznam,
 Naver, Yep) ; la clé de `indexnow.txt` est publique par construction. Google ne suit pas IndexNow :
 déclarer le site et son plan dans Search Console (propriétaire du domaine).
+
+`outils/verifier_indexation.py` (workflow `indexation` : après chaque publication, chaque lundi, à la
+demande) relit le site en ligne : robots.txt, plan du site, adresse canonique, balise robots, langue
+et traductions de chaque page, `llms.txt`, clé IndexNow, redirections vers `https://www`. Il ne dit
+pas si un moteur a indexé le site : cela se lit dans Search Console et Bing Webmaster Tools.
