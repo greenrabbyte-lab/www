@@ -84,12 +84,19 @@ footer code { user-select: all; }
 }
 @media (max-width: 480px) { .flow, .stats, .cards { grid-template-columns: 1fr; } nav a { margin-left: .8rem; } }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.briques { width: 100%; border-collapse: collapse; margin-top: 1.6rem; font-size: .95rem; }
+.briques th, .briques td { text-align: left; vertical-align: top; padding: .7rem .6rem; border-top: 1px solid var(--line, #d9dde5); }
+.briques th { font: 600 .75rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.briques .role { color: var(--muted); font-size: .85rem; }
+.mat { display: inline-block; font: 600 .72rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: .3rem .5rem; border-radius: .3rem; border: 1px solid currentColor; }
+.mat.grad { color: #2c5f2d; } .mat.incub { color: var(--accent-ink); } .mat.sand { color: #8a6d1f; } .mat.hors { color: var(--muted); }
+@media (max-width: 640px) { .briques thead { display: none; } .briques td { display: block; border-top: 0; padding: .3rem .2rem; } .briques tr { display: block; border-top: 1px solid var(--line, #d9dde5); padding: .6rem 0; } }
 </style>
 </head>
 <body>
 <header class="site"><div class="wrap">
   <div class="brand">Robalp <small>robalp.fr</small></div>
-  <nav><a href="#cas">Le cas Linky</a><a href="#chemin">Golden path</a><a href="#criteres">Critères</a><a href="#mesure">Mesuré</a></nav>
+  <nav><a href="#cas">Le cas Linky</a><a href="#chemin">Golden path</a><a href="#criteres">Critères</a><a href="#mesure">Mesuré</a><a href="#briques">Briques</a></nav>
 </div></header>
 
 <section class="hero"><div class="wrap">
@@ -183,6 +190,34 @@ footer code { user-select: all; }
     <article><h3>Un journal des erreurs</h3><p>Chaque erreur de l'IA ou de la chaîne est consignée avec sa release, sa gravité, qui l'a détectée et le correctif. Le taux d'erreur par release est un tableau de bord, pas un secret.</p><p class="proof">qualite/erreurs.csv · tableau de bord Grafana</p></article>
   </div>
   <p class="note" style="margin-top:1.8rem">Le banc de non-régression Keycloak de l'équipe est public : <a href="https://github.com/greenrabbyte-lab/keycloak-non-regression">greenrabbyte-lab/keycloak-non-regression</a>.</p>
+</div></section>
+
+<section id="briques"><div class="wrap">
+  <div class="eyebrow">Nos briques</div>
+  <h2>Chaque composant a une maturité connue, vérifiée chaque semaine.</h2>
+  <p class="lead">17 briques, 9 dans la CNCF dont 5 <em>graduated</em>. La maturité CNCF mesure la gouvernance et l'adoption d'un projet, pas sa qualité : à fonctionnalité égale on préfère Graduated, puis Incubating, puis Sandbox ; un choix Sandbox ou hors CNCF est motivé et relu à chaque revue d'architecture. Lecture du <a href="https://landscape.cncf.io/">landscape officiel</a> : 2026-11-18, vérifiée automatiquement chaque mercredi.</p>
+  <table class="briques">
+    <thead><tr><th>Composant</th><th>Maturité</th><th>Pourquoi ce choix</th></tr></thead>
+    <tbody>
+    <tr><td><strong>containerd</strong><br><span class="role">moteur de conteneurs de k3s et de la VM (stockage containerd)</span></td><td><span class="mat grad">Graduated</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>etcd</strong><br><span class="role">base d'état de k3s (SQLite par défaut, etcd en option)</span></td><td><span class="mat grad">Graduated</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>Helm</strong><br><span class="role">charts (Keycloak, Backstage à venir)</span></td><td><span class="mat grad">Graduated</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>Kubernetes</strong><br><span class="role">orchestration des conteneurs (via k3s) sur labgpu01</span></td><td><span class="mat grad">Graduated</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>Prometheus</strong><br><span class="role">métriques (k3s, Grafana)</span></td><td><span class="mat grad">Graduated</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>Backstage</strong><br><span class="role">portail interne on-premise (évaluation, GRL-110)</span></td><td><span class="mat incub">Incubating</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>Keycloak</strong><br><span class="role">identité (kit durci, auth.robalp.fr à venir)</span></td><td><span class="mat incub">Incubating</span><br><span class="role">CNCF</span></td><td></td></tr>
+    <tr><td><strong>k3s</strong><br><span class="role">distribution Kubernetes mono-nœud de labgpu01 (v1.36.5)</span></td><td><span class="mat sand">Sandbox</span><br><span class="role">CNCF</span></td><td>distribution légère adaptée à une machine ; le cœur (Kubernetes) est graduated</td></tr>
+    <tr><td><strong>OpenTofu</strong><br><span class="role">infrastructure as code (labgpu01, Azure, DNS, Port, AVD), 1.13.2</span></td><td><span class="mat sand">Sandbox</span><br><span class="role">CNCF (Linux Foundation)</span></td><td>licence libre (MPL) face à Terraform BSL ; HCL commun avec l'entreprise (ADR)</td></tr>
+    <tr><td><strong>cosign / Sigstore</strong><br><span class="role">signatures et attestations (kit Keycloak, images DHI)</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">OpenSSF (Linux Foundation)</span></td><td>standard de signature de la supply chain ; in-toto (CNCF graduated) pour les attestations</td></tr>
+    <tr><td><strong>dbt Core + DuckDB</strong><br><span class="role">transformations bronze → argent → or → partage</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">dbt Labs (Apache 2.0) / DuckDB Foundation (MIT)</span></td><td>hors périmètre CNCF (données analytiques)</td></tr>
+    <tr><td><strong>Grafana</strong><br><span class="role">tableaux de bord (sécurité, plateforme, qualité, livraison)</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">Grafana Labs (AGPL)</span></td><td>standard de fait, image durcie ; alternative CNCF partielle : Perses (sandbox)</td></tr>
+    <tr><td><strong>OpenCost / FOCUS</strong><br><span class="role">étiquettes FOCUS et coûts (FinOps Foundation)</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">FinOps Foundation (Linux Foundation)</span></td><td>OpenCost (CNCF incubating) à évaluer pour les coûts du cluster</td></tr>
+    <tr><td><strong>Port.io</strong><br><span class="role">portail interne, libre-service (démo)</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">éditeur (SaaS)</span></td><td>rapidité de mise en œuvre pour la démo ; alternative CNCF Backstage (incubating) en évaluation (GRL-110)</td></tr>
+    <tr><td><strong>Renovate</strong><br><span class="role">mises à jour de dépendances et d'images</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">Mend (AGPL)</span></td><td>pas d'équivalent CNCF ; exécuté sur notre runner, image figée</td></tr>
+    <tr><td><strong>restic</strong><br><span class="role">sauvegarde chiffrée hors site</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">communauté (BSD-2)</span></td><td>alternative CNCF : Velero (sandbox) pour les volumes Kubernetes, pas pour des fichiers hôte</td></tr>
+    <tr><td><strong>Trivy</strong><br><span class="role">analyse des images, de la configuration et des secrets (0.76.0)</span></td><td><span class="mat hors">Hors CNCF</span><br><span class="role">Aqua Security (Apache 2.0)</span></td><td>couverture images + IaC + secrets en un outil ; alternatives CNCF : Kubescape (incubating), Falco (graduated) à l'exécution</td></tr>
+    </tbody>
+  </table>
 </div></section>
 
 <footer><div class="wrap">
