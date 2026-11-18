@@ -6,7 +6,7 @@ code_court: "DE"
 nom_langue: "Deutsch"
 
 site:
-  description: "Platform Engineering, erklärt an der Praxis: jedes Prinzip so, wie ein Unternehmen es umsetzt, und so, wie es in einem Heimlabor für rund 70 € läuft."
+  description: "Platform Engineering, erklärt an der Praxis: jedes Prinzip so, wie ein Unternehmen es umsetzt, und so, wie es in einem zu Hause aufgebauten Labor mit 70 € Hardware läuft."
 
 navigation:
   aller_au_contenu: "Zum Inhalt springen"
@@ -47,9 +47,9 @@ achats:
       prix: "schon vorhanden"
 
 image_partage:
-  alt: "Platform Engineering, zu Hause aufgebaut für 70 €, auf robalp.fr"
-  titre: ["Platform Engineering,", "zu Hause aufgebaut", "für 70 €."]
-  sous_titre: ["Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode", "mit einem Nachweis, der läuft."]
+  alt: "Platform Engineering, zu Hause? auf robalp.fr"
+  titre: ["Platform Engineering,", "zu Hause?"]
+  sous_titre: ["Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode", "mit Nachweis, der läuft, auf einem Labor mit 70 € Hardware."]
 
 introuvable:
   titre: "Diese Seite gibt es nicht"

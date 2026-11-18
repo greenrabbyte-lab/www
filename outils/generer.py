@@ -482,6 +482,7 @@ def page_architecture(t, c, donnees):
 
 <div class="replis">
   {repli(t("materiel", "titre"), tableau(t, t.liste("materiel", "colonnes"), t.liste("materiel", "lignes")))}
+  {repli(t("briques", "titre"), f'<p>{t("briques", "texte")}</p>' + tableau(t, t.liste("briques", "colonnes"), t.liste("briques", "lignes")))}
   {repli(t("chemin", "titre"), etapes(t, "chemin"))}
   {repli_points(t, "principes")}
   {repli_texte(t, "gpu")}

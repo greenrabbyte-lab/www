@@ -2,12 +2,12 @@
 # Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
 
 meta:
-  titre: "Le platform engineering, monté à la maison pour 70 € | Robalp"
-  description: "Portail en libre-service, golden paths, agents IA encadrés, observabilité : chaque méthode du platform engineering, prouvée sur un labo maison monté pour environ 70 €."
+  titre: "Le platform engineering, à la maison ? | Robalp"
+  description: "Portail en libre-service, golden paths, agents IA encadrés, observabilité : chaque méthode du platform engineering, prouvée sur un labo monté à la maison avec 70 € de matériel. Site libre et gratuit."
 
 accroche:
-  titre: "Le platform engineering, monté à la maison pour 70 €."
-  chapeau: "Portail en libre-service, golden paths, agents IA encadrés : chaque méthode du platform engineering, avec sa preuve qui tourne."
+  titre: "Le platform engineering, à la maison ?"
+  chapeau: "Portail en libre-service, golden paths, agents IA encadrés : chaque méthode du platform engineering, avec sa preuve qui tourne sur un labo monté à la maison, pour 70 € de matériel."
   bouton_principal: "C'est quoi, en vrai ?"
   bouton_secondaire: "Voir l'architecture"
 

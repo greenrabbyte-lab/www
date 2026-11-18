@@ -6,7 +6,7 @@ code_court: "FR"
 nom_langue: "Français"
 
 site:
-  description: "Le platform engineering expliqué par le concret : chaque principe tel qu'on le met en place en entreprise, puis tel qu'il tourne sur un labo maison monté pour environ 70 €."
+  description: "Le platform engineering expliqué par le concret : chaque principe tel qu'on le met en place en entreprise, puis tel qu'il tourne sur un labo monté à la maison avec 70 € de matériel."
 
 navigation:
   aller_au_contenu: "Aller au contenu"
@@ -47,9 +47,9 @@ achats:
       prix: "déjà à la maison"
 
 image_partage:
-  alt: "Le platform engineering, monté à la maison pour 70 €, sur robalp.fr"
-  titre: ["Le platform engineering,", "monté à la maison", "pour 70 €."]
-  sous_titre: ["Portail, golden paths, agents IA encadrés : chaque méthode,", "avec sa preuve qui tourne."]
+  alt: "Le platform engineering, à la maison ? sur robalp.fr"
+  titre: ["Le platform engineering,", "à la maison ?"]
+  sous_titre: ["Portail, golden paths, agents IA encadrés : chaque méthode,", "avec sa preuve qui tourne, sur un labo à 70 € de matériel."]
 
 introuvable:
   titre: "Cette page n'existe pas"
