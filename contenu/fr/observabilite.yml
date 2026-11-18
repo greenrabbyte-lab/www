@@ -1,0 +1,52 @@
+# Page « L'observabilité ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "L'observabilité d'une plateforme : ce qu'on mesure | Robalp"
+  description: "Piloter une plateforme comme un produit : ce qu'elle livre, ce qu'elle coûte, ce qui casse. Ce que le labo mesure, pour qui, et sans ouvrir de porte."
+
+entete:
+  fil: "L'observabilité"
+  titre: "L'observabilité"
+  chapeau: "En platform engineering, la plateforme se pilote comme un produit : ce qu'elle livre, ce qu'elle coûte, ce qui casse."
+
+entreprise:
+  titre: "En entreprise"
+  points:
+    - "La santé des services, avec des alertes utiles."
+    - "Les indicateurs de livraison : fréquence, délai, échecs."
+    - "Les coûts par équipe, grâce aux étiquettes."
+
+labo:
+  titre: "Au labo"
+  points:
+    - "Des tableaux de bord Grafana alimentés par la chaîne elle-même."
+    - "Disques, mises à jour, livraisons, erreurs : tout est suivi."
+    - "Le PC de calcul ne s'allume qu'à la demande."
+
+mesures:
+  titre: "Ce qui est mesuré, et pour qui"
+  colonnes: ["Pour qui", "Ce qu'on regarde"]
+  lignes:
+    - pour_qui: "Données"
+      ce_qu_on_regarde: "Durée et statut de chaque passage, résultat de chaque étape dbt par couche"
+    - pour_qui: "Bases"
+      ce_qu_on_regarde: "Espace disque et prévision de saturation, taille des tables, connexions"
+    - pour_qui: "Exploitation"
+      ce_qu_on_regarde: "Mises à jour en attente, redémarrage nécessaire"
+    - pour_qui: "Équipe"
+      ce_qu_on_regarde: "Pull requests et releases par jour, taux d'erreur par release"
+    - pour_qui: "Foyer"
+      ce_qu_on_regarde: "Production solaire prévue la veille, comparée à la réelle"
+
+sans_porte:
+  titre: "Mesurer sans ouvrir de porte"
+  points:
+    - "La machine des tableaux de bord n'a aucun accès au PC de calcul : c'est le PC qui publie."
+    - "La clé de publication ne permet qu'une action : déposer un document de mesures d'1 Mio au plus."
+    - "Le compte qui reçoit les mesures n'exécute qu'une fonction, qui refuse en entier un document invalide."
+    - "Grafana est en lecture seule."
+
+sobriete:
+  titre: "Sobriété"
+  texte: "Seule la petite machine virtuelle de collecte tourne jour et nuit. Ce site suit la même règle : fond noir, une seule police, aucun framework, et son propre poids affiché en bas de chaque page."

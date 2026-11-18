@@ -1,27 +1,43 @@
-# Publication du site vitrine sur GitHub Pages (GRL-93). Statique, sans construction : le dépôt est servi tel quel.
+# Publication du site vitrine sur GitHub Pages (GRL-93).
+# Les pages sont générées depuis contenu/ (fr, en, de) par outils/generer.py, qui vérifie d'abord
+# que les trois langues ont les mêmes clés, repères et balises. Sur une pull request : génération
+# et vérification seulement. Sur main : génération puis publication.
 name: pages
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  publier:
+  generer:
     runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r outils/requirements.txt
+      - run: python outils/generer.py --sortie _site
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  publier:
+    if: github.event_name != 'pull_request'
+    needs: generer
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deploiement.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v5
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: .
       - id: deploiement
         uses: actions/deploy-pages@v4

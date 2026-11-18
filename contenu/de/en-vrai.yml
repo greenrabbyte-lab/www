@@ -1,0 +1,63 @@
+# Seite „Was ist das eigentlich?“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Was ist Platform Engineering eigentlich? | Robalp"
+  description: "Platform Engineering ohne Fachchinesisch: welches Problem es löst, was ein Plattformteam tut und wie ein typischer Tag aussieht, in wenigen Zeilen."
+
+entete:
+  fil: "Was ist Platform Engineering?"
+  titre: "Was ist Platform Engineering eigentlich?"
+  chapeau: "Platform Engineering heißt, eine interne Plattform zu bauen, damit Teams schnell und sauber liefern, ohne bei jedem Projekt alles neu zu erfinden."
+
+probleme:
+  titre: "Das Problem"
+  texte: "Jedes Team geht denselben Weg: eine Umgebung, eine Pipeline, Sicherheit, Hosting. Jeder Schritt ist ein Ticket, und die Zeit geht mit Warten verloren."
+
+reponse:
+  titre: "Die Antwort des Platform Engineering"
+  points:
+    - "<strong>Golden Paths</strong>: ausgebaute Wege bis in die Produktion."
+    - "<strong>Ein Portal</strong>: anfragen, bekommen, verfolgen."
+    - "<strong>Automatische Leitplanken</strong>: Tests, Sicherheit, Daten."
+    - "<strong>Messungen</strong>: Durchlaufzeiten, Fehler, Kosten."
+
+journee:
+  titre: "Ein typischer Tag im Labor"
+  etapes:
+    - titre: "Eine Idee"
+      texte: "Im Portal: „Meine Sandbox anfordern“."
+    - titre: "8 Minuten"
+      texte: "Eine fertige Maschine, mit Claude Code und dem Code."
+    - titre: "Die Arbeit"
+      texte: "Claude Code schreibt den Code, testet ihn und öffnet einen Pull Request."
+    - titre: "Die Prüfungen"
+      texte: "Die Pipeline prüft zwölf Kriterien."
+    - titre: "Die Produktion"
+      texte: "Doppelte Freigabe, dann Deployment per Digest."
+
+ce_que_ce_n_est_pas:
+  titre: "Was es nicht ist"
+  points:
+    - "Ein umbenanntes DevOps-Team. DevOps ist eine Kultur; die Plattform liefert das gemeinsame Werkzeug dafür."
+    - "Ein Tool, das man kauft. Ein Portal ohne Wege dahinter bleibt ein Schaufenster."
+    - "Ein weiterer Schalter. Wenn jede Anfrage ein Ticket bleibt, ist das Ziel verfehlt."
+
+pourquoi_maintenant:
+  titre: "Warum jetzt"
+  texte: "Mit KI wird das Schreiben von Code immer billiger. Der Engpass verschiebt sich nach hinten: diesen Code sauber in Produktion bringen, absichern, betreiben und wissen, was er kostet. Genau das ist das Terrain der Plattform, die zugleich zum Arbeitsrahmen für KI-Agenten wird."
+
+vocabulaire:
+  titre: "Das Vokabular des Platform Engineering in fünf Begriffen"
+  nom_du_lexique: "Das Vokabular des Platform Engineering"
+  termes:
+    - terme: "Golden Path"
+      definition: "Ein ausgebauter, vollständig mit Werkzeugen versehener Weg für einen Anwendungstyp, vom Code-Repository bis in die Produktion."
+    - terme: "Entwicklerportal"
+      definition: "Der Einstieg im Self-Service: Katalog, Aktionen, Status der Anfragen."
+    - terme: "Sandbox"
+      definition: "Eine isolierte Wegwerf-Umgebung, um gefahrlos auszuprobieren."
+    - terme: "Digest"
+      definition: "Die exakte Kennung eines Container-Images. Ein Deployment per Digest garantiert, dass genau das läuft, was getestet wurde."
+    - terme: "SBOM"
+      definition: "Die Liste der Komponenten einer Software, mit jeder Version veröffentlicht, damit klar ist, was zu beheben ist, wenn eine Schwachstelle bekannt wird."

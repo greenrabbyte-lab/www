@@ -1,0 +1,53 @@
+# Home page.
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "Platform engineering, built at home for €70 | Robalp"
+  description: "Self-service portal, golden paths, AI agents with guardrails, observability: every platform engineering method, proven on a home lab built for about €70."
+
+accroche:
+  titre: "Platform engineering, built at home for €70."
+  chapeau: "Self-service portal, golden paths, AI agents with guardrails: every platform engineering method, with proof that runs."
+  bouton_principal: "What is it, really?"
+  bouton_secondaire: "See the architecture"
+
+demo:
+  aria: "How a sandbox request unfolds in the portal"
+  titre: "Get my sandbox"
+  source: "Port portal"
+  etapes: ["Request received", "VM: startup", "VM: docker", "VM: az-cli", "VM: claude-code", "VM: repository", "VM: skills"]
+  pret: "Ready"
+  pastilles: ["about 8 minutes", "no ticket", "no approval"]
+  legende: "The real steps of a request in the lab's portal."
+
+chiffres:
+  titre: "What the lab delivered in {jours} days"
+  pr: "pull requests merged"
+  releases: "releases published"
+  taux: "logged errors per 100 pull requests"
+  periode: "From October 17 to November 5, 2026, across three repositories."
+  lien: "Where these numbers come from"
+
+methodes:
+  titre: "Four platform engineering methods, each with its proof"
+  portail:
+    titre: "The developer portal"
+    texte: "A sandbox ready in about 8 minutes, no ticket."
+  golden-paths:
+    titre: "Golden paths"
+    texte: "Twelve criteria checked before every production release."
+  agents-ia:
+    titre: "AI agents with guardrails"
+    texte: "Claude delivers within a frame: one door, one log, three levels."
+  observabilite:
+    titre: "Observability"
+    texte: "Everything is measured, errors included."
+
+budget:
+  somme: "€70"
+  precision: "roughly, for all the hardware bought"
+  lien: "The full architecture"
+
+appel:
+  texte: "New to platform engineering? Start with the essentials."
+  bouton: "What is it, really?"

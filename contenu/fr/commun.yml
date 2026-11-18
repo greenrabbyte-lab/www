@@ -1,0 +1,57 @@
+# Textes communs à toutes les pages : navigation, pied de page, achats, image de partage, page introuvable.
+# Ne pas modifier les clés (à gauche des deux-points), ni les {repères} entre accolades, ni les balises HTML.
+
+langue: "fr"
+code_court: "FR"
+nom_langue: "Français"
+
+site:
+  description: "Le platform engineering expliqué par le concret : chaque principe tel qu'on le met en place en entreprise, puis tel qu'il tourne sur un labo maison monté pour environ 70 €."
+
+navigation:
+  aller_au_contenu: "Aller au contenu"
+  accueil_aria: "Robalp, accueil"
+  pages_aria: "Pages du site"
+  menu: "Menu"
+  menu_aria: "Pages du site, menu mobile"
+  langues_aria: "Langue du site"
+  fil_aria: "Fil d'Ariane"
+  accueil: "Accueil"
+  voisines_aria: "Pages voisines"
+  precedent: "Précédent"
+  suivant: "Suivant"
+  pages:
+    en-vrai: "En vrai"
+    portail: "Portail"
+    golden-paths: "Golden paths"
+    agents-ia: "Agents IA"
+    observabilite: "Observabilité"
+    architecture: "Architecture"
+
+pied:
+  compteur: "Cette page pèse {poids}, soit {energie} ({estimation})."
+  poids_par_defaut: "quelques dizaines de ko"
+  energie_par_defaut: "quelques mWh"
+  estimation: "estimation Sustainable Web Design"
+  code_du_site: "Code du site"
+  sans_donnees: "Aucune donnée personnelle"
+
+achats:
+  titre: "Deux achats. Le reste dormait déjà à la maison."
+  lignes:
+    - article: "Clé Micro-Téléinfo V3.0, reliée au compteur Linky par deux fils"
+      prix: "19,90 €"
+    - article: "SSD PNY CS1030 de 250 Go, ajouté à la Freebox"
+      prix: "acheté"
+    - article: "Freebox, PC de 2013, carte graphique NVIDIA Titan X"
+      prix: "déjà à la maison"
+
+image_partage:
+  alt: "Le platform engineering, monté à la maison pour 70 €, sur robalp.fr"
+  titre: ["Le platform engineering,", "monté à la maison", "pour 70 €."]
+  sous_titre: ["Portail, golden paths, agents IA encadrés : chaque méthode,", "avec sa preuve qui tourne."]
+
+introuvable:
+  titre: "Cette page n'existe pas"
+  texte: "L'adresse a peut-être changé."
+  retour: "Revenir à l'accueil"

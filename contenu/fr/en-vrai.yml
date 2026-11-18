@@ -1,0 +1,63 @@
+# Page « C'est quoi, en vrai ? ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "C'est quoi le platform engineering, en vrai ? | Robalp"
+  description: "Le platform engineering sans jargon : le problème qu'il règle, ce que fait une équipe plateforme et une journée type, en quelques lignes."
+
+entete:
+  fil: "C'est quoi le platform engineering ?"
+  titre: "C'est quoi le platform engineering, en vrai ?"
+  chapeau: "Le platform engineering, c'est construire une plateforme interne pour que les équipes livrent vite et bien, sans tout réinventer à chaque projet."
+
+probleme:
+  titre: "Le problème"
+  texte: "Chaque équipe refait le même parcours : un environnement, un pipeline, la sécurité, l'hébergement. Chaque étape est un ticket, et le temps part dans l'attente."
+
+reponse:
+  titre: "La réponse du platform engineering"
+  points:
+    - "<strong>Des golden paths</strong> : des chemins balisés jusqu'à la production."
+    - "<strong>Un portail</strong> : on demande, on obtient, on suit."
+    - "<strong>Des garde-fous automatiques</strong> : tests, sécurité, données."
+    - "<strong>Des mesures</strong> : délais, erreurs, coûts."
+
+journee:
+  titre: "Une journée type, sur le labo"
+  etapes:
+    - titre: "Une idée"
+      texte: "Dans le portail : « Obtenir mon bac à sable »."
+    - titre: "8 minutes"
+      texte: "Une machine prête, avec Claude Code et le code."
+    - titre: "Le travail"
+      texte: "Claude Code code, teste et ouvre une pull request."
+    - titre: "Les contrôles"
+      texte: "Le pipeline vérifie douze critères."
+    - titre: "La production"
+      texte: "Double validation, puis déploiement par empreinte."
+
+ce_que_ce_n_est_pas:
+  titre: "Ce que ce n'est pas"
+  points:
+    - "Une équipe DevOps rebaptisée. Le DevOps est une culture ; la plateforme en fournit l'outillage commun."
+    - "Un outil qu'on achète. Un portail sans chemins derrière reste une vitrine."
+    - "Un guichet de plus. Si chaque demande reste un ticket, c'est raté."
+
+pourquoi_maintenant:
+  titre: "Pourquoi maintenant"
+  texte: "Avec l'IA, écrire du code coûte de moins en moins cher. Le goulot se déplace vers la suite : mettre ce code en production proprement, le sécuriser, l'exploiter, savoir ce qu'il coûte. C'est le terrain de la plateforme, qui devient aussi le cadre de travail des agents IA."
+
+vocabulaire:
+  titre: "Le vocabulaire du platform engineering en cinq mots"
+  nom_du_lexique: "Le vocabulaire du platform engineering"
+  termes:
+    - terme: "Golden path"
+      definition: "Un chemin balisé et outillé pour un type d'application, du dépôt de code à la production."
+    - terme: "Portail développeur"
+      definition: "Le point d'entrée en libre-service : catalogue, actions, état des demandes."
+    - terme: "Bac à sable"
+      definition: "Un environnement jetable et isolé, pour essayer sans risque."
+    - terme: "Empreinte"
+      definition: "L'identifiant exact d'une image de conteneur. Déployer par empreinte garantit que ce qui tourne est ce qui a été testé."
+    - terme: "SBOM"
+      definition: "La liste des composants d'un logiciel, publiée avec chaque version, pour savoir quoi corriger quand une faille est annoncée."

@@ -1,0 +1,71 @@
+# Seite „Golden Paths“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Golden Paths: ein ausgebauter Weg bis in die Produktion | Robalp"
+  description: "Was ein Golden Path ist, und der erste Weg des Labors: eine Wegwerf-Sandbox, zwölf Abnahmekriterien, ein per Digest ausgeliefertes Image."
+
+entete:
+  fil: "Golden Paths"
+  titre: "Golden Paths"
+  chapeau: "Der Golden Path ist der Grundbaustein des Platform Engineering: ein ausgebauter Weg bis in die Produktion, in dem die Regeln aller Teams schon eingebaut sind."
+
+entreprise:
+  titre: "Im Unternehmen"
+  points:
+    - "Vorlage, Pipeline, Sicherheit, Deployment: alles aus einer Hand."
+    - "Die Anforderungen anderer Teams werden zu automatischen Prüfungen."
+    - "Man beginnt mit dem häufigsten Fall."
+
+labo:
+  titre: "Im Labor"
+  points:
+    - "Eine Wegwerf-Sandbox ohne öffentliche Adresse, abgeschaltet um 19 Uhr."
+    - "Zwölf Kriterien, von der Pipeline geprüft."
+    - "Ein Image, einmal gebaut und per Digest ausgeliefert."
+
+criteres:
+  titre: "Zwölf Kriterien vor der Produktion"
+  texte: "Die Kriterien 1 bis 9 müssen grün sein, damit es in Produktion geht. Die letzten drei werden einmal geprüft und danach vom Monitoring überwacht."
+  repli: "Die zwölf Kriterien ansehen"
+  colonnes: ["Nr.", "Kriterium", "Wie es geprüft wird"]
+  liste:
+    - critere: "Die Tests laufen durch"
+      verification: "JUnit-Bericht ohne Fehlschlag"
+    - critere: "Startet ohne Secrets und ohne Daten"
+      verification: "Health-Check antwortet in unter 10 Sekunden"
+    - critere: "Lauscht auf dem vorgegebenen Port"
+      verification: "ungültiger Port: sofortiger Abbruch mit Meldung"
+    - critere: "Zeigt die gelieferten Daten an"
+      verification: "Startseite in unter einer Sekunde, im Kaltstart"
+    - critere: "Kontaktiert nur einen Host, seine Quelle"
+      verification: "Netzwerk getrennt, die Seiten antworten weiter"
+    - critere: "Ohne Privilegien, schreibgeschützt"
+      verification: "kein Root-Benutzer, schreibgeschütztes Dateisystem"
+    - critere: "Sauberes Image"
+      verification: "keine behebbare kritische Schwachstelle außer mit datierter Ausnahme; SBOM veröffentlicht"
+    - critere: "Per Digest identifiziert"
+      verification: "Deployment per <code>@sha256</code>, nie per veränderlichem Tag"
+    - critere: "Keine personenbezogenen Daten"
+      verification: "nur die Spalten des Datenvertrags, Prüfbericht bei jedem Upload dabei"
+    - critere: "Aussagekräftiger Health-Check"
+      verification: "er liefert Profil, Version und Status"
+    - critere: "Größe und Speicher"
+      verification: "Image höchstens 150 MB, unter 150 MB Arbeitsspeicher"
+    - critere: "Lesbares Log"
+      verification: "eine Zeile pro Anfrage, ohne personenbezogene Daten"
+
+bac_a_sable:
+  titre: "Die Sandbox im Detail"
+  points:
+    - "Von Terraform in Azure erstellt, ohne öffentliche IP-Adresse und ohne eingehende Regel aus dem Internet."
+    - "Fertig eingerichtet: Claude Code, Git, Docker, der Code im eigenen Branch und die Skills des Teams."
+    - "Automatisch um 19 Uhr abgeschaltet, mit einer E-Mail 30 Minuten vorher."
+    - "Ein Budget mit Alarmen und Pflicht-Tags für die Kosten: Eine Prüfung lehnt einen unvollständigen Plan ab."
+
+a_retenir:
+  titre: "Was wir daraus lernen"
+  points:
+    - "Ein vollständiger Weg ist besser als drei halbfertige."
+    - "Die Kriterien vor dem Code schreiben: Sie sind der Vertrag zwischen dem entwickelnden Team und der Plattform."
+    - "Jede Anforderung, die zur automatischen Prüfung wird, ist ein Meeting weniger."

@@ -1,0 +1,52 @@
+# Page "Observability".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "Platform observability: what we measure | Robalp"
+  description: "Running a platform like a product: what it delivers, what it costs, what breaks. What the lab measures, for whom, and without opening a door."
+
+entete:
+  fil: "Observability"
+  titre: "Observability"
+  chapeau: "In platform engineering, the platform is run like a product: what it delivers, what it costs, what breaks."
+
+entreprise:
+  titre: "In a company"
+  points:
+    - "Service health, with useful alerts."
+    - "Delivery metrics: frequency, lead time, failures."
+    - "Costs per team, thanks to tags."
+
+labo:
+  titre: "In the lab"
+  points:
+    - "Grafana dashboards fed by the data pipeline itself."
+    - "Disks, updates, deliveries, errors: everything is tracked."
+    - "The compute PC only powers on when needed."
+
+mesures:
+  titre: "What is measured, and for whom"
+  colonnes: ["For whom", "What we watch"]
+  lignes:
+    - pour_qui: "Data"
+      ce_qu_on_regarde: "Duration and status of every run, result of every dbt step per layer"
+    - pour_qui: "Databases"
+      ce_qu_on_regarde: "Disk space and when it will fill up, table sizes, connections"
+    - pour_qui: "Operations"
+      ce_qu_on_regarde: "Pending updates, reboot required"
+    - pour_qui: "Team"
+      ce_qu_on_regarde: "Pull requests and releases per day, error rate per release"
+    - pour_qui: "Household"
+      ce_qu_on_regarde: "Solar output forecast the day before, compared with the actual output"
+
+sans_porte:
+  titre: "Measuring without opening a door"
+  points:
+    - "The dashboard machine has no access to the compute PC: the PC publishes."
+    - "The publishing key allows a single action: dropping a metrics document of 1 MiB at most."
+    - "The account that receives the metrics runs a single function, which rejects an invalid document outright."
+    - "Grafana is read-only."
+
+sobriete:
+  titre: "Frugality"
+  texte: "Only the small data-collection virtual machine runs day and night. This site follows the same rule: black background, a single font, no framework, and its own weight shown at the bottom of every page."

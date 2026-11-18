@@ -1,2 +1,6 @@
 .DS_Store
 Thumbs.db
+
+# Site généré par outils/generer.py
+_site/
+__pycache__/

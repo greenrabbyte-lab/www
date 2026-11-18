@@ -1,0 +1,64 @@
+# Seite „KI-Agenten mit Leitplanken“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "KI-Agenten auf einer Plattform steuern | Robalp"
+  description: "Ein KI-Agent ist ein Nutzer der Plattform wie jeder andere: eine Identität, begrenzte Rechte, ein Protokoll. Wie das Labor Claude Leitplanken setzt, und was dabei herauskommt, gemessen."
+
+entete:
+  fil: "KI-Agenten mit Leitplanken"
+  titre: "KI-Agenten mit Leitplanken"
+  chapeau: "Im Platform Engineering ist ein KI-Agent ein Nutzer wie jeder andere: eine Identität, begrenzte Rechte, ein Protokoll."
+
+entreprise:
+  titre: "Im Unternehmen"
+  points:
+    - "Eine Identität pro Agent, widerrufbar."
+    - "Breit lesen, durch eine schmale Tür schreiben."
+    - "Fehler werden gemessen, wie bei jedem Team."
+
+labo:
+  titre: "Im Labor, seit dem 2. November 2026"
+  points:
+    - "Claude hat ein eigenes Konto ohne Privilegien."
+    - "Eine einzige Schreibtür, jeder Aufruf wird protokolliert."
+    - "Jedes Deployment wird angekündigt, bevor es angewendet wird."
+
+paliers:
+  titre: "Drei Stufen"
+  seul:
+    titre: "Allein"
+    texte: "Eigene grüne Pull Requests mergen, einen angekündigten Plan anwenden."
+  avec_un_humain:
+    titre: "Mit einem Menschen"
+    texte: "Datenbank, Cluster, Firewall, nach einem Snapshot."
+  jamais:
+    titre: "Nie"
+    texte: "Eine Root-Shell, ein Secret, personenbezogene Daten."
+
+mesure:
+  titre: "2. November: {pr_delegation} Pull Requests an einem Tag"
+  texte: "Erster Tag der kontrollierten Delegation. Vom 17. Oktober bis 5. November 2026, über drei Repositories."
+  pr: "gemergte Pull Requests im Zeitraum"
+  taux: "erfasste Fehler pro 100 Pull Requests"
+  taux_prod: "davon in Produktion bemerkt, pro 100 Pull Requests"
+
+graphe:
+  titre_accessible: "Gemergte Pull Requests pro Tag, 17. Oktober bis 5. November 2026: {pr_delegation} am 2. November, dem ersten Tag der kontrollierten Delegation"
+  repere: "kontrollierte Delegation"
+  debut: "17. Okt."
+  delegation: "2. Nov."
+  fin: "5. Nov."
+  legende: "Gemergte Pull Requests pro Tag in drei Repositories des Labors, 17. Oktober bis 5. November 2026. Gelb: seit dem Start der kontrollierten Delegation."
+
+assistant:
+  titre: "Der lokale Assistent"
+  texte: "Die App zur Stromverbrauchsmessung hat einen Assistenten, der auf Französisch antwortet, mit einem Sprachmodell, das auf der Grafikkarte des Labors läuft. Er wird als nicht vertrauenswürdige Komponente behandelt."
+  points:
+    - "Er rechnet nichts: Er wählt eine vordefinierte Abfrage, und die Zahlen kommen immer aus SQL."
+    - "Er hat keinen ausgehenden Netzwerkzugang, und nur die App kann ihn erreichen."
+    - "Kein freies SQL, keine Zugangsdaten zur Datenbank."
+
+journal:
+  titre: "Das Fehlerprotokoll"
+  texte: "Jeder Fehler des Agenten oder der Pipeline wird erfasst: das Release, das ihn eingeführt hat, sein Schweregrad, wer ihn entdeckt hat, die Behebung. Der Eintrag kommt in denselben Pull Request wie die Behebung und wird in jeder Retrospektive durchgesehen."

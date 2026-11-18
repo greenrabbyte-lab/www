@@ -1,0 +1,48 @@
+# Page "The developer portal".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "The developer portal, in a company and in the lab | Robalp"
+  description: "What a developer portal is for, and what it looks like in a lab: Port connected to GitHub and Azure, a sandbox ready in about 8 minutes, no ticket."
+
+entete:
+  fil: "The developer portal"
+  titre: "The developer portal"
+  chapeau: "The platform's front door: ask, get, track."
+
+entreprise:
+  titre: "In a company"
+  points:
+    - "A catalog: who owns what, and where it runs."
+    - "Self-service actions."
+    - "Approval only where the risk calls for it."
+
+labo:
+  titre: "In the lab"
+  points:
+    - "Port, on the free plan, connected to GitHub."
+    - "“Get my sandbox”: ready in about 8 minutes, no approval."
+    - "“Release my sandbox” needs approval: deleting gets signed off, creating doesn't."
+
+trajet:
+  titre: "How a request travels"
+  etapes:
+    - titre: "Port"
+      texte: "The form sends the request."
+    - titre: "GitHub Actions"
+      texte: "The workflow starts, with no Azure password stored."
+    - titre: "Azure"
+      texte: "Terraform creates the machine and its guardrails."
+    - titre: "Back in Port"
+      texte: "The request is updated at every step."
+
+a_retenir:
+  titre: "What we learned"
+  points:
+    - "Start with one truly useful action: getting a working environment."
+    - "Keep approval for what deletes or costs money. Everything else runs on its own."
+    - "The portal doesn't read Azure directly: the workflow keeps it up to date. That is enough for one machine per request."
+
+premier_echec:
+  titre: "The first failure, and its fix"
+  texte: "On the first run, the action stayed “in progress” without triggering anything: the integration method was wrong. The error is recorded in the lab's error log, along with its fix."

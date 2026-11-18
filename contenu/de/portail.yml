@@ -1,0 +1,48 @@
+# Seite „Das Entwicklerportal“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Das Entwicklerportal, im Unternehmen und im Labor | Robalp"
+  description: "Wozu ein Entwicklerportal dient und wie es im Labor aussieht: Port, angebunden an GitHub und Azure, eine Sandbox in rund 8 Minuten, ohne Ticket."
+
+entete:
+  fil: "Das Entwicklerportal"
+  titre: "Das Entwicklerportal"
+  chapeau: "Die Eingangstür zur Plattform: anfragen, bekommen, verfolgen."
+
+entreprise:
+  titre: "Im Unternehmen"
+  points:
+    - "Ein Katalog: wem was gehört und wo es läuft."
+    - "Aktionen im Self-Service."
+    - "Eine Freigabe nur dort, wo das Risiko sie verlangt."
+
+labo:
+  titre: "Im Labor"
+  points:
+    - "Port im kostenlosen Plan, angebunden an GitHub."
+    - "„Meine Sandbox anfordern“: in rund 8 Minuten bereit, ohne Freigabe."
+    - "„Sandbox löschen“ braucht eine Freigabe: Löschen wird freigegeben, Anlegen nicht."
+
+trajet:
+  titre: "Der Weg einer Anfrage"
+  etapes:
+    - titre: "Port"
+      texte: "Das Formular schickt die Anfrage ab."
+    - titre: "GitHub Actions"
+      texte: "Der Workflow startet, ohne gespeichertes Azure-Passwort."
+    - titre: "Azure"
+      texte: "Terraform erstellt die Maschine und ihre Leitplanken."
+    - titre: "Zurück in Port"
+      texte: "Die Anfrage wird bei jedem Schritt aktualisiert."
+
+a_retenir:
+  titre: "Was wir daraus lernen"
+  points:
+    - "Mit einer einzigen, wirklich nützlichen Aktion anfangen: eine Arbeitsumgebung bekommen."
+    - "Freigaben für das reservieren, was löscht oder Geld kostet. Alles andere läuft von selbst."
+    - "Das Portal liest Azure nicht direkt: Der Workflow hält es aktuell. Für eine Maschine pro Anfrage reicht das."
+
+premier_echec:
+  titre: "Der erste Fehlschlag und seine Behebung"
+  texte: "Beim ersten Start blieb die Aktion „in Bearbeitung“, ohne etwas auszulösen: Die Integrationsmethode war falsch. Der Fehler ist im Fehlerprotokoll des Labors erfasst, zusammen mit seiner Behebung."
