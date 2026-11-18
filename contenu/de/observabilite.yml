@@ -1,0 +1,52 @@
+# Seite „Observability“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Observability einer Plattform: was wir messen | Robalp"
+  description: "Eine Plattform wie ein Produkt führen: was sie liefert, was sie kostet, was kaputtgeht. Was das Labor misst, für wen, und ohne eine Tür zu öffnen."
+
+entete:
+  fil: "Observability"
+  titre: "Observability"
+  chapeau: "Im Platform Engineering führt man die Plattform wie ein Produkt: was sie liefert, was sie kostet, was kaputtgeht."
+
+entreprise:
+  titre: "Im Unternehmen"
+  points:
+    - "Der Zustand der Services, mit nützlichen Alarmen."
+    - "Lieferkennzahlen: Häufigkeit, Durchlaufzeit, Fehlschläge."
+    - "Kosten pro Team, dank Tags."
+
+labo:
+  titre: "Im Labor"
+  points:
+    - "Grafana-Dashboards, gespeist von der Datenpipeline selbst."
+    - "Festplatten, Updates, Auslieferungen, Fehler: Alles wird verfolgt."
+    - "Der Rechen-PC läuft nur bei Bedarf."
+
+mesures:
+  titre: "Was gemessen wird, und für wen"
+  colonnes: ["Für wen", "Was wir beobachten"]
+  lignes:
+    - pour_qui: "Daten"
+      ce_qu_on_regarde: "Dauer und Status jedes Durchlaufs, Ergebnis jedes dbt-Schritts pro Schicht"
+    - pour_qui: "Datenbanken"
+      ce_qu_on_regarde: "Speicherplatz und Prognose, wann er voll ist, Tabellengrößen, Verbindungen"
+    - pour_qui: "Betrieb"
+      ce_qu_on_regarde: "Ausstehende Updates, nötiger Neustart"
+    - pour_qui: "Team"
+      ce_qu_on_regarde: "Pull Requests und Releases pro Tag, Fehlerquote pro Release"
+    - pour_qui: "Haushalt"
+      ce_qu_on_regarde: "Solarertrag, am Vortag prognostiziert, verglichen mit dem tatsächlichen"
+
+sans_porte:
+  titre: "Messen, ohne eine Tür zu öffnen"
+  points:
+    - "Die Dashboard-Maschine hat keinen Zugriff auf den Rechen-PC: Der PC veröffentlicht selbst."
+    - "Der Veröffentlichungsschlüssel erlaubt genau eine Aktion: ein Messdokument von höchstens 1 MiB ablegen."
+    - "Das Konto, das die Messungen empfängt, führt nur eine Funktion aus, die ein ungültiges Dokument komplett ablehnt."
+    - "Grafana ist schreibgeschützt."
+
+sobriete:
+  titre: "Sparsamkeit"
+  texte: "Nur die kleine virtuelle Maschine zur Datenerfassung läuft Tag und Nacht. Diese Website folgt derselben Regel: schwarzer Hintergrund, eine einzige Schrift, kein Framework, und ihr eigenes Gewicht steht unten auf jeder Seite."

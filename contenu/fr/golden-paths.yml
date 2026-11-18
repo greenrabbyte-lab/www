@@ -1,0 +1,71 @@
+# Page « Les golden paths ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "Golden paths : un chemin balisé jusqu'à la production | Robalp"
+  description: "Ce qu'est un golden path, et le premier chemin du labo : un bac à sable jetable, douze critères d'acceptation, une image déployée par empreinte."
+
+entete:
+  fil: "Les golden paths"
+  titre: "Les golden paths"
+  chapeau: "Le golden path est la brique de base du platform engineering : un chemin balisé jusqu'à la production, avec les règles de chaque équipe déjà dedans."
+
+entreprise:
+  titre: "En entreprise"
+  points:
+    - "Modèle, pipeline, sécurité, déploiement : fournis ensemble."
+    - "Les exigences des autres équipes deviennent des contrôles automatiques."
+    - "On commence par le cas le plus fréquent."
+
+labo:
+  titre: "Au labo"
+  points:
+    - "Un bac à sable jetable, sans adresse publique, arrêté à 19 h."
+    - "Douze critères vérifiés par le pipeline."
+    - "Une image construite une fois, déployée par son empreinte."
+
+criteres:
+  titre: "Douze critères avant la production"
+  texte: "Les critères 1 à 9 doivent être verts pour passer en production. Les trois derniers sont vérifiés une fois, puis suivis par la supervision."
+  repli: "Voir les douze critères"
+  colonnes: ["N°", "Critère", "Comment on le vérifie"]
+  liste:
+    - critere: "Les tests passent"
+      verification: "rapport JUnit sans échec"
+    - critere: "Démarre sans secret ni données"
+      verification: "sonde de santé en moins de 10 secondes"
+    - critere: "Écoute sur le port fourni"
+      verification: "port invalide : arrêt immédiat, avec un message"
+    - critere: "Affiche les données fournies"
+      verification: "accueil en moins d'une seconde, à froid"
+    - critere: "Ne contacte qu'un seul hôte, sa source"
+      verification: "réseau coupé, les pages répondent encore"
+    - critere: "Sans privilège, en lecture seule"
+      verification: "utilisateur non root, fichiers en lecture seule"
+    - critere: "Image saine"
+      verification: "aucune faille critique corrigeable hors exception datée ; SBOM publiée"
+    - critere: "Identifiée par empreinte"
+      verification: "déploiement par <code>@sha256</code>, jamais par étiquette mobile"
+    - critere: "Aucune donnée personnelle"
+      verification: "seules les colonnes du contrat de partage, contrôle joint à chaque envoi"
+    - critere: "Santé exploitable"
+      verification: "la sonde renvoie profil, version et statut"
+    - critere: "Taille et mémoire"
+      verification: "image de 150 Mo au plus, moins de 150 Mo de mémoire"
+    - critere: "Journal lisible"
+      verification: "une ligne par requête, sans donnée personnelle"
+
+bac_a_sable:
+  titre: "Le bac à sable en détail"
+  points:
+    - "Créé par Terraform dans Azure, sans adresse IP publique ni règle entrante depuis Internet."
+    - "Livré prêt : Claude Code, Git, Docker, le code sur sa branche et les compétences de l'équipe."
+    - "Arrêté automatiquement à 19 h, avec un courriel 30 minutes avant."
+    - "Un budget avec alertes, et des étiquettes de coût obligatoires : un contrôle refuse un plan incomplet."
+
+a_retenir:
+  titre: "Ce qu'on en retient"
+  points:
+    - "Un chemin complet vaut mieux que trois chemins à moitié faits."
+    - "Écrire les critères avant le code : c'est le contrat entre l'équipe qui développe et la plateforme."
+    - "Chaque exigence transformée en contrôle automatique, c'est une réunion de moins."

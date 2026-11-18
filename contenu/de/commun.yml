@@ -1,0 +1,57 @@
+# Gemeinsame Texte aller Seiten: Navigation, Fußzeile, Anschaffungen, Vorschaubild, Fehlerseite.
+# Nicht ändern: die Schlüssel (links vom Doppelpunkt), die {Platzhalter} in geschweiften Klammern, die HTML-Tags.
+
+langue: "de"
+code_court: "DE"
+nom_langue: "Deutsch"
+
+site:
+  description: "Platform Engineering, erklärt an der Praxis: jedes Prinzip so, wie ein Unternehmen es umsetzt, und so, wie es in einem Heimlabor für rund 70 € läuft."
+
+navigation:
+  aller_au_contenu: "Zum Inhalt springen"
+  accueil_aria: "Robalp, Startseite"
+  pages_aria: "Seiten der Website"
+  menu: "Menü"
+  menu_aria: "Seiten der Website, mobiles Menü"
+  langues_aria: "Sprache der Website"
+  fil_aria: "Brotkrümelnavigation"
+  accueil: "Startseite"
+  voisines_aria: "Benachbarte Seiten"
+  precedent: "Zurück"
+  suivant: "Weiter"
+  pages:
+    en-vrai: "Grundlagen"
+    portail: "Portal"
+    golden-paths: "Golden Paths"
+    agents-ia: "KI-Agenten"
+    observabilite: "Observability"
+    architecture: "Architektur"
+
+pied:
+  compteur: "Diese Seite wiegt {poids}, das sind {energie} ({estimation})."
+  poids_par_defaut: "einige Dutzend kB"
+  energie_par_defaut: "einige mWh"
+  estimation: "Schätzung nach Sustainable Web Design"
+  code_du_site: "Quellcode der Website"
+  sans_donnees: "Keine personenbezogenen Daten"
+
+achats:
+  titre: "Zwei Anschaffungen. Alles andere war schon im Haus."
+  lignes:
+    - article: "USB-Stick Micro-Téléinfo V3.0, mit zwei Drähten am Linky-Stromzähler angeschlossen"
+      prix: "19,90 €"
+    - article: "SSD PNY CS1030 mit 250 GB, in die Freebox eingebaut"
+      prix: "gekauft"
+    - article: "Freebox, PC von 2013, Grafikkarte NVIDIA Titan X"
+      prix: "schon vorhanden"
+
+image_partage:
+  alt: "Platform Engineering, zu Hause aufgebaut für 70 €, auf robalp.fr"
+  titre: ["Platform Engineering,", "zu Hause aufgebaut", "für 70 €."]
+  sous_titre: ["Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode", "mit einem Nachweis, der läuft."]
+
+introuvable:
+  titre: "Diese Seite gibt es nicht"
+  texte: "Die Adresse hat sich vielleicht geändert."
+  retour: "Zur Startseite"

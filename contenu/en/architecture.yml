@@ -1,0 +1,87 @@
+# Page "The architecture".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "The architecture of a €70 platform engineering lab | Robalp"
+  description: "The machines, the data flow and the principles of a platform engineering lab built for about €70: k3s, Terraform, Azure, nothing exposed to the internet."
+
+entete:
+  fil: "The architecture"
+  titre: "The architecture"
+  chapeau: "A platform engineering lab for about €70, on hardware that was lying around at home. What runs, where, and what never leaves the house."
+
+schema:
+  maison:
+    titre: "At home"
+    elements:
+      - nom: "Linky meter and solar panels"
+        detail: "read continuously"
+      - nom: "Collection VM, on the Freebox"
+        detail: "always on"
+      - nom: "Recycled compute PC"
+        detail: "on when needed: k3s, GPU, language model"
+  liaison: "deliberate, checked upload"
+  azure:
+    titre: "In Azure"
+    elements:
+      - nom: "Storage"
+        detail: "the sharing layer: aggregated kWh"
+      - nom: "Containerized app"
+        detail: "no database, no secret"
+
+part:
+  titre: "What goes to Azure"
+  points:
+    - "kWh per day, per hour and per appliance."
+    - "Tomorrow's forecast."
+    - "Nothing finer than the hour, no identifier."
+
+reste:
+  titre: "What stays at home"
+  points:
+    - "Per-second measurements."
+    - "The appliance inventory, the bills."
+    - "The assistant and its language model."
+
+materiel:
+  titre: "The hardware"
+  colonnes: ["Machine", "Role", "Hardware"]
+  lignes:
+    - machine: "Collection VM"
+      role: "Measurements, dashboards"
+      materiel: "Debian 12 VM on the Freebox, ARM64, 2 GB of memory"
+    - machine: "Freebox disk"
+      role: "Storage added to the router"
+      materiel: "PNY CS1030 SSD, 250 GB, M.2 NVMe PCIe Gen3"
+    - machine: "Compute PC"
+      role: "Single-node k3s cluster, language model"
+      materiel: "2013 PC (Core i7-4770, 32 GB), NVIDIA Titan X graphics card with 12 GB"
+    - machine: "Meter reader"
+      role: "Linky teleinformation"
+      materiel: "Micro-Téléinfo V3.0 USB key, connected to the meter with two wires"
+
+chemin:
+  titre: "The data flow"
+  etapes:
+    - titre: "Collection"
+      texte: "The VM stores the measurements continuously."
+    - titre: "Copy"
+      texte: "The PC pulls the data, without the VM having any access to the PC."
+    - titre: "Transformation"
+      texte: "dbt on DuckDB: bronze, silver, gold, then sharing."
+    - titre: "Check"
+      texte: "The files must comply with the data contract."
+    - titre: "Upload"
+      texte: "A deliberate action, with a manifest and a report."
+
+principes:
+  titre: "The principles"
+  points:
+    - "Everything is code: OpenTofu, encrypted state, no lasting manual change."
+    - "No port open to the internet from home."
+    - "Outbound connections only: the cloud can never call home."
+    - "The minimum first: a component arrives when a real need calls for it."
+
+gpu:
+  titre: "The limits of a recycled GPU"
+  texte: "The NVIDIA Titan X, from the Maxwell generation (released in 2015), is no longer supported by the latest tools. The driver is pinned to the last branch that supports it, CUDA stays on version 12, and the model server is compiled for that one architecture. The open language model has 7 to 8 billion parameters, quantized to fit in the card's 12 GB."

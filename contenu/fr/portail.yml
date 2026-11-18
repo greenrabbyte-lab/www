@@ -1,0 +1,48 @@
+# Page « Le portail développeur ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "Le portail développeur, en entreprise et au labo | Robalp"
+  description: "À quoi sert un portail développeur, et ce qu'il donne sur un labo : Port branché sur GitHub et Azure, un bac à sable prêt en 8 minutes environ, sans ticket."
+
+entete:
+  fil: "Le portail développeur"
+  titre: "Le portail développeur"
+  chapeau: "La porte d'entrée de la plateforme : on demande, on obtient, on suit."
+
+entreprise:
+  titre: "En entreprise"
+  points:
+    - "Un catalogue : qui possède quoi, et où ça tourne."
+    - "Des actions en libre-service."
+    - "Une approbation seulement là où le risque l'exige."
+
+labo:
+  titre: "Au labo"
+  points:
+    - "Port, en plan gratuit, branché sur GitHub."
+    - "« Obtenir mon bac à sable » : prêt en 8 minutes environ, sans approbation."
+    - "« Libérer » demande une approbation : détruire se valide, créer non."
+
+trajet:
+  titre: "Le trajet d'une demande"
+  etapes:
+    - titre: "Port"
+      texte: "Le formulaire envoie la demande."
+    - titre: "GitHub Actions"
+      texte: "Le workflow démarre, sans mot de passe Azure stocké."
+    - titre: "Azure"
+      texte: "Terraform crée la machine et ses garde-fous."
+    - titre: "Retour dans Port"
+      texte: "La demande se met à jour à chaque étape."
+
+a_retenir:
+  titre: "Ce qu'on en retient"
+  points:
+    - "Commencer par une seule action vraiment utile : obtenir un environnement de travail."
+    - "Garder l'approbation pour ce qui détruit ou coûte. Le reste part tout seul."
+    - "Le portail ne lit pas Azure directement : le workflow le tient à jour. Suffisant pour une machine par demande."
+
+premier_echec:
+  titre: "Le premier échec, et son correctif"
+  texte: "À la première mise en route, l'action restait « en cours » sans rien déclencher : la méthode d'intégration n'était pas la bonne. L'erreur est consignée dans le journal du labo, avec son correctif."

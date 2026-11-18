@@ -1,0 +1,53 @@
+# Startseite.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Platform Engineering, zu Hause aufgebaut für 70 € | Robalp"
+  description: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken, Observability: jede Methode des Platform Engineering, belegt an einem Heimlabor für rund 70 €."
+
+accroche:
+  titre: "Platform Engineering, zu Hause aufgebaut für 70 €."
+  chapeau: "Self-Service-Portal, Golden Paths, KI-Agenten mit Leitplanken: jede Methode des Platform Engineering mit einem Nachweis, der läuft."
+  bouton_principal: "Was ist das eigentlich?"
+  bouton_secondaire: "Zur Architektur"
+
+demo:
+  aria: "Ablauf einer Sandbox-Anfrage im Portal"
+  titre: "Meine Sandbox anfordern"
+  source: "Port-Portal"
+  etapes: ["Anfrage erhalten", "VM: Start", "VM: docker", "VM: az-cli", "VM: claude-code", "VM: Repository", "VM: Skills"]
+  pret: "Bereit"
+  pastilles: ["rund 8 Minuten", "kein Ticket", "keine Freigabe"]
+  legende: "Die echten Schritte einer Anfrage im Portal des Labors."
+
+chiffres:
+  titre: "Was das Labor in {jours} Tagen geliefert hat"
+  pr: "gemergte Pull Requests"
+  releases: "veröffentlichte Releases"
+  taux: "erfasste Fehler pro 100 Pull Requests"
+  periode: "Vom 17. Oktober bis 5. November 2026, über drei Repositories."
+  lien: "Woher diese Zahlen stammen"
+
+methodes:
+  titre: "Vier Methoden des Platform Engineering, jede mit Nachweis"
+  portail:
+    titre: "Das Entwicklerportal"
+    texte: "Eine Sandbox in rund 8 Minuten, ohne Ticket."
+  golden-paths:
+    titre: "Golden Paths"
+    texte: "Zwölf Kriterien, geprüft vor jedem Release in die Produktion."
+  agents-ia:
+    titre: "KI-Agenten mit Leitplanken"
+    texte: "Claude liefert in einem festen Rahmen: eine Tür, ein Protokoll, drei Stufen."
+  observabilite:
+    titre: "Observability"
+    texte: "Alles wird gemessen, auch die Fehler."
+
+budget:
+  somme: "70 €"
+  precision: "ungefähr, für die gesamte gekaufte Hardware"
+  lien: "Die ganze Architektur"
+
+appel:
+  texte: "Neu im Platform Engineering? Am besten mit den Grundlagen anfangen."
+  bouton: "Was ist das eigentlich?"

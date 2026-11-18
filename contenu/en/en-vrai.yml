@@ -1,0 +1,63 @@
+# Page "What is it, really?".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "What is platform engineering, really? | Robalp"
+  description: "Platform engineering without the jargon: the problem it solves, what a platform team does and a typical day, in a few lines."
+
+entete:
+  fil: "What is platform engineering?"
+  titre: "What is platform engineering, really?"
+  chapeau: "Platform engineering means building an internal platform so teams ship fast and well, without reinventing everything on every project."
+
+probleme:
+  titre: "The problem"
+  texte: "Every team repeats the same journey: an environment, a pipeline, security, hosting. Each step is a ticket, and the time goes into waiting."
+
+reponse:
+  titre: "The platform engineering answer"
+  points:
+    - "<strong>Golden paths</strong>: paved roads all the way to production."
+    - "<strong>A portal</strong>: ask, get, track."
+    - "<strong>Automatic guardrails</strong>: tests, security, data."
+    - "<strong>Measurements</strong>: lead times, errors, costs."
+
+journee:
+  titre: "A typical day in the lab"
+  etapes:
+    - titre: "An idea"
+      texte: "In the portal: “Get my sandbox”."
+    - titre: "8 minutes"
+      texte: "A ready machine, with Claude Code and the code."
+    - titre: "The work"
+      texte: "Claude Code writes the code, tests it and opens a pull request."
+    - titre: "The checks"
+      texte: "The pipeline checks twelve criteria."
+    - titre: "Production"
+      texte: "Double approval, then deployment by digest."
+
+ce_que_ce_n_est_pas:
+  titre: "What it is not"
+  points:
+    - "A renamed DevOps team. DevOps is a culture; the platform provides its shared tooling."
+    - "A tool you buy. A portal with no paths behind it is just a shop window."
+    - "One more service desk. If every request is still a ticket, it has failed."
+
+pourquoi_maintenant:
+  titre: "Why now"
+  texte: "With AI, writing code costs less and less. The bottleneck moves downstream: getting that code into production cleanly, securing it, running it, knowing what it costs. That is the platform's territory, and the platform is also becoming the working frame for AI agents."
+
+vocabulaire:
+  titre: "Platform engineering vocabulary in five words"
+  nom_du_lexique: "Platform engineering vocabulary"
+  termes:
+    - terme: "Golden path"
+      definition: "A paved, fully tooled road for one type of application, from the code repository to production."
+    - terme: "Developer portal"
+      definition: "The self-service entry point: catalog, actions, request status."
+    - terme: "Sandbox"
+      definition: "A disposable, isolated environment for trying things without risk."
+    - terme: "Digest"
+      definition: "The exact identifier of a container image. Deploying by digest guarantees that what runs is what was tested."
+    - terme: "SBOM"
+      definition: "The list of a piece of software's components, published with every version, so you know what to fix when a vulnerability is announced."

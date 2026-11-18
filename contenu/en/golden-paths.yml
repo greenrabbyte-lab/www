@@ -1,0 +1,71 @@
+# Page "Golden paths".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "Golden paths: a paved road to production | Robalp"
+  description: "What a golden path is, and the lab's first one: a disposable sandbox, twelve acceptance criteria, an image deployed by digest."
+
+entete:
+  fil: "Golden paths"
+  titre: "Golden paths"
+  chapeau: "The golden path is the basic building block of platform engineering: a paved road to production, with every team's rules already built in."
+
+entreprise:
+  titre: "In a company"
+  points:
+    - "Template, pipeline, security, deployment: delivered together."
+    - "Other teams' requirements become automated checks."
+    - "Start with the most frequent case."
+
+labo:
+  titre: "In the lab"
+  points:
+    - "A disposable sandbox, no public address, shut down at 7 p.m."
+    - "Twelve criteria checked by the pipeline."
+    - "An image built once, deployed by its digest."
+
+criteres:
+  titre: "Twelve criteria before production"
+  texte: "Criteria 1 to 9 must be green to go to production. The last three are checked once, then tracked by monitoring."
+  repli: "See the twelve criteria"
+  colonnes: ["No.", "Criterion", "How it is checked"]
+  liste:
+    - critere: "Tests pass"
+      verification: "JUnit report with no failures"
+    - critere: "Starts with no secrets and no data"
+      verification: "health check answers in under 10 seconds"
+    - critere: "Listens on the given port"
+      verification: "invalid port: immediate stop, with a message"
+    - critere: "Shows the data provided"
+      verification: "home page in under a second, cold start"
+    - critere: "Contacts a single host, its source"
+      verification: "with the network cut, pages still respond"
+    - critere: "Unprivileged, read-only"
+      verification: "non-root user, read-only file system"
+    - critere: "Healthy image"
+      verification: "no fixable critical vulnerability outside a dated exception; SBOM published"
+    - critere: "Identified by digest"
+      verification: "deployed by <code>@sha256</code>, never by a mutable tag"
+    - critere: "No personal data"
+      verification: "only the columns of the data contract, with the check attached to every upload"
+    - critere: "Actionable health check"
+      verification: "it returns profile, version and status"
+    - critere: "Size and memory"
+      verification: "image of 150 MB at most, under 150 MB of memory"
+    - critere: "Readable log"
+      verification: "one line per request, no personal data"
+
+bac_a_sable:
+  titre: "The sandbox in detail"
+  points:
+    - "Created by Terraform in Azure, with no public IP address and no inbound rule from the internet."
+    - "Delivered ready to use: Claude Code, Git, Docker, the code on its own branch and the team's skills."
+    - "Shut down automatically at 7 p.m., with an email 30 minutes before."
+    - "A budget with alerts, and mandatory cost tags: a check rejects an incomplete plan."
+
+a_retenir:
+  titre: "What we learned"
+  points:
+    - "One complete path beats three half-built ones."
+    - "Write the criteria before the code: they are the contract between the team that builds and the platform."
+    - "Every requirement turned into an automated check is one meeting fewer."

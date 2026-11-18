@@ -1,0 +1,64 @@
+# Page "AI agents with guardrails".
+# Do not change the keys, the {placeholders} in braces, or the HTML tags (attributes in single quotes).
+
+meta:
+  titre: "Governing AI agents on a platform | Robalp"
+  description: "An AI agent is a platform user like any other: an identity, limited rights, a log. How the lab puts guardrails around Claude, and what it delivers, measured."
+
+entete:
+  fil: "AI agents with guardrails"
+  titre: "AI agents with guardrails"
+  chapeau: "In platform engineering, an AI agent is a user like any other: an identity, limited rights, a log."
+
+entreprise:
+  titre: "In a company"
+  points:
+    - "One identity per agent, revocable."
+    - "Read broadly, write through a narrow door."
+    - "Errors measured, as for any team."
+
+labo:
+  titre: "In the lab, since November 2, 2026"
+  points:
+    - "Claude has a dedicated, unprivileged account."
+    - "A single write door, every call logged."
+    - "Every deployment is announced before it is applied."
+
+paliers:
+  titre: "Three levels"
+  seul:
+    titre: "On its own"
+    texte: "Merge its own green pull requests, apply an announced plan."
+  avec_un_humain:
+    titre: "With a human"
+    texte: "Database, cluster, firewall, after a snapshot."
+  jamais:
+    titre: "Never"
+    texte: "A root shell, a secret, personal data."
+
+mesure:
+  titre: "November 2: {pr_delegation} pull requests in one day"
+  texte: "First day of supervised delegation. From October 17 to November 5, 2026, across three repositories."
+  pr: "pull requests merged over the period"
+  taux: "logged errors per 100 pull requests"
+  taux_prod: "seen in production, per 100 pull requests"
+
+graphe:
+  titre_accessible: "Pull requests merged per day, October 17 to November 5, 2026: {pr_delegation} on November 2, the first day of supervised delegation"
+  repere: "supervised delegation"
+  debut: "Oct 17"
+  delegation: "Nov 2"
+  fin: "Nov 5"
+  legende: "Pull requests merged per day across three lab repositories, October 17 to November 5, 2026. In yellow: since supervised delegation went live."
+
+assistant:
+  titre: "The local assistant"
+  texte: "The electricity-monitoring app has an assistant that answers in French, using a language model that runs on the lab's graphics card. It is treated as an untrusted component."
+  points:
+    - "It computes nothing: it picks a predefined query, and the numbers always come from SQL."
+    - "It has no outbound network access, and only the app can reach it."
+    - "No free-form SQL, no database credentials."
+
+journal:
+  titre: "The error log"
+  texte: "Every error made by the agent or the pipeline is recorded: the release that introduced it, its severity, who detected it, the fix. The entry goes into the same pull request as the fix, and it is reviewed at every retrospective."

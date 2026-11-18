@@ -1,0 +1,87 @@
+# Seite „Die Architektur“.
+# Nicht ändern: die Schlüssel, die {Platzhalter} in geschweiften Klammern, die HTML-Tags (Attribute in einfachen Anführungszeichen).
+
+meta:
+  titre: "Die Architektur eines Platform-Engineering-Labors für 70 € | Robalp"
+  description: "Die Maschinen, der Datenfluss und die Prinzipien eines Platform-Engineering-Labors für rund 70 €: k3s, Terraform, Azure, nichts aus dem Internet erreichbar."
+
+entete:
+  fil: "Die Architektur"
+  titre: "Die Architektur"
+  chapeau: "Ein Platform-Engineering-Labor für rund 70 €, auf Hardware, die zu Hause herumlag. Was läuft, wo, und was das Haus nie verlässt."
+
+schema:
+  maison:
+    titre: "Zu Hause"
+    elements:
+      - nom: "Linky-Zähler und Solaranlage"
+        detail: "laufend ausgelesen"
+      - nom: "Erfassungs-VM auf der Freebox"
+        detail: "immer eingeschaltet"
+      - nom: "Recycelter Rechen-PC"
+        detail: "bei Bedarf eingeschaltet: k3s, GPU, Sprachmodell"
+  liaison: "freiwilliger, geprüfter Upload"
+  azure:
+    titre: "In Azure"
+    elements:
+      - nom: "Speicher"
+        detail: "die Austauschschicht: aggregierte kWh"
+      - nom: "Container-App"
+        detail: "ohne Datenbank und ohne Secret"
+
+part:
+  titre: "Was nach Azure geht"
+  points:
+    - "Die kWh pro Tag, pro Stunde und pro Gerät."
+    - "Die Prognose für morgen."
+    - "Nichts feiner als die Stunde, keine Kennung."
+
+reste:
+  titre: "Was zu Hause bleibt"
+  points:
+    - "Die sekundengenauen Messungen."
+    - "Das Geräteinventar, die Rechnungen."
+    - "Der Assistent und sein Sprachmodell."
+
+materiel:
+  titre: "Die Hardware"
+  colonnes: ["Maschine", "Rolle", "Hardware"]
+  lignes:
+    - machine: "Erfassungs-VM"
+      role: "Messungen, Dashboards"
+      materiel: "Debian-12-VM auf der Freebox, ARM64, 2 GB Arbeitsspeicher"
+    - machine: "Festplatte der Freebox"
+      role: "In die Box eingebauter Speicher"
+      materiel: "SSD PNY CS1030, 250 GB, M.2 NVMe PCIe Gen3"
+    - machine: "Rechen-PC"
+      role: "k3s-Cluster mit einem Knoten, Sprachmodell"
+      materiel: "PC von 2013 (Core i7-4770, 32 GB), Grafikkarte NVIDIA Titan X mit 12 GB"
+    - machine: "Zählerleser"
+      role: "Teleinformation des Linky"
+      materiel: "USB-Stick Micro-Téléinfo V3.0, mit zwei Drähten am Zähler angeschlossen"
+
+chemin:
+  titre: "Der Weg der Daten"
+  etapes:
+    - titre: "Erfassung"
+      texte: "Die VM speichert die Messungen laufend."
+    - titre: "Kopie"
+      texte: "Der PC holt die Daten ab, ohne dass die VM Zugriff auf den PC hat."
+    - titre: "Transformation"
+      texte: "dbt auf DuckDB: Bronze, Silber, Gold, dann Austausch."
+    - titre: "Prüfung"
+      texte: "Die Dateien müssen den Datenvertrag einhalten."
+    - titre: "Upload"
+      texte: "Ein bewusster Schritt, mit Manifest und Prüfbericht."
+
+principes:
+  titre: "Die Prinzipien"
+  points:
+    - "Alles ist Code: OpenTofu, verschlüsselter State, keine dauerhafte manuelle Änderung."
+    - "Von zu Hause aus ist kein Port zum Internet offen."
+    - "Nur ausgehende Verbindungen: Die Cloud kann das Haus nie anrufen."
+    - "Erst das Minimum: Ein Baustein kommt erst, wenn ein echter Bedarf ihn verlangt."
+
+gpu:
+  titre: "Die Grenzen einer recycelten GPU"
+  texte: "Die NVIDIA Titan X aus der Maxwell-Generation (erschienen 2015) wird von den neuesten Werkzeugen nicht mehr unterstützt. Der Treiber ist auf den letzten Zweig festgelegt, der sie noch unterstützt, CUDA bleibt bei Version 12, und der Modellserver ist nur für diese Architektur kompiliert. Das offene Sprachmodell hat 7 bis 8 Milliarden Parameter und ist so quantisiert, dass es in ihre 12 GB passt."

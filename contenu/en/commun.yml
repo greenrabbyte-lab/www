@@ -1,0 +1,57 @@
+# Shared texts for every page: navigation, footer, purchases, share image, not-found page.
+# Do not change the keys (left of the colon), the {placeholders} in braces, or the HTML tags.
+
+langue: "en"
+code_court: "EN"
+nom_langue: "English"
+
+site:
+  description: "Platform engineering explained through practice: each principle as a company puts it in place, then as it runs on a home lab built for about €70."
+
+navigation:
+  aller_au_contenu: "Skip to content"
+  accueil_aria: "Robalp, home"
+  pages_aria: "Site pages"
+  menu: "Menu"
+  menu_aria: "Site pages, mobile menu"
+  langues_aria: "Site language"
+  fil_aria: "Breadcrumb"
+  accueil: "Home"
+  voisines_aria: "Neighboring pages"
+  precedent: "Previous"
+  suivant: "Next"
+  pages:
+    en-vrai: "Basics"
+    portail: "Portal"
+    golden-paths: "Golden paths"
+    agents-ia: "AI agents"
+    observabilite: "Observability"
+    architecture: "Architecture"
+
+pied:
+  compteur: "This page weighs {poids}, or {energie} ({estimation})."
+  poids_par_defaut: "a few dozen kB"
+  energie_par_defaut: "a few mWh"
+  estimation: "Sustainable Web Design estimate"
+  code_du_site: "Site source code"
+  sans_donnees: "No personal data"
+
+achats:
+  titre: "Two purchases. Everything else was already at home."
+  lignes:
+    - article: "Micro-Téléinfo V3.0 USB key, connected to the Linky smart meter with two wires"
+      prix: "€19.90"
+    - article: "PNY CS1030 250 GB SSD, added to the Freebox router"
+      prix: "purchased"
+    - article: "Freebox router, 2013 PC, NVIDIA Titan X graphics card"
+      prix: "already at home"
+
+image_partage:
+  alt: "Platform engineering, built at home for €70, on robalp.fr"
+  titre: ["Platform engineering,", "built at home", "for €70."]
+  sous_titre: ["Portal, golden paths, AI agents with guardrails: every method,", "with proof that runs."]
+
+introuvable:
+  titre: "This page doesn't exist"
+  texte: "The address may have changed."
+  retour: "Back to the home page"

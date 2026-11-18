@@ -1,0 +1,33 @@
+# Chiffres de livraison du labo, communs aux trois langues.
+# Source : greenrabbyte-lab/platform, qualite/livraisons.csv, du 17 octobre au 5 novembre 2026
+# (dépôts platform, linky, keycloak-non-regression). Les textes les citent entre accolades :
+# {jours}, {pr}, {releases}, {taux}, {taux_prod}, {pr_delegation}, {erreurs}, {erreurs_prod}.
+# Le générateur vérifie que la somme par jour égale le total des pull requests.
+
+pr: 143
+releases: 60
+erreurs: 14
+erreurs_production: 6
+delegation: "2026-11-02"
+
+pr_par_jour:
+  "2026-10-17": 3
+  "2026-10-18": 0
+  "2026-10-19": 2
+  "2026-10-20": 1
+  "2026-10-21": 2
+  "2026-10-22": 2
+  "2026-10-23": 0
+  "2026-10-24": 0
+  "2026-10-25": 2
+  "2026-10-26": 5
+  "2026-10-27": 2
+  "2026-10-28": 0
+  "2026-10-29": 4
+  "2026-10-30": 6
+  "2026-10-31": 14
+  "2026-11-01": 0
+  "2026-11-02": 80
+  "2026-11-03": 1
+  "2026-11-04": 12
+  "2026-11-05": 7

@@ -1,46 +1,44 @@
 # www.robalp.fr
 
 Le platform engineering expliqué par le concret : chaque principe tel qu'on le met en place en
-entreprise, puis tel qu'il tourne sur le labo maison. Statique, sans framework, publié par GitHub
-Pages à chaque poussée sur `main` (`.github/workflows/pages.yml`). Aucune donnée personnelle.
+entreprise, puis tel qu'il tourne sur le labo maison. En français (racine), en anglais (`/en/`) et
+en allemand (`/de/`). Aucune donnée personnelle.
+
+## Organisation
+
+| Dossier | Contenu |
+|---|---|
+| `contenu/` | tous les textes, un fichier YAML par page et par langue, et les chiffres (`donnees.yml`) ; voir `contenu/LISEZMOI.md` |
+| `outils/generer.py` | la structure des pages ; génère `_site/` après avoir vérifié la cohérence des langues |
+| `outils/image_partage.py` | dessine les images de partage de chaque langue |
+| `assets/` | feuille de style, police, compteur, icône, images de partage |
+| `.github/workflows/pages.yml` | génère à chaque pull request ; génère et publie sur GitHub Pages à chaque poussée sur `main` |
+
+Les pages HTML ne sont plus versionnées : elles sont produites à la publication.
 
 ## Pages
 
-| Fichier | Contenu |
-|---|---|
-| `index.html` | Accueil : les trois niveaux de lecture, le relevé des livraisons |
-| `en-vrai.html` | C'est quoi, en vrai ? Problème, rôle d'une équipe plateforme, journée type, vocabulaire |
-| `portail.html` | Le portail développeur (Port) |
-| `golden-paths.html` | Les golden paths, le bac à sable, les douze critères d'acceptation |
-| `agents-ia.html` | La gouvernance des agents IA (délégation encadrée), mesures et journal des erreurs |
-| `observabilite.html` | Ce qui est mesuré, pour qui, et comment sans ouvrir de porte |
-| `architecture.html` | Machines, chemin des données, ce qui part dans Azure et ce qui reste à la maison |
-| `404.html` | Page introuvable (non indexée) |
+`index`, `en-vrai` (C'est quoi, en vrai ?), `portail`, `golden-paths`, `agents-ia`,
+`observabilite`, `architecture`, plus une page `404` trilingue.
 
 ## Référencement (moteurs et assistants IA)
 
-- Chaque page : `title` et `description` propres, URL canonique, Open Graph (image `assets/partage.png`,
-  1200 × 630), données structurées schema.org (`WebSite`, `TechArticle`, `BreadcrumbList`, et
-  `DefinedTermSet` pour le vocabulaire).
-- `sitemap.xml` : les sept pages. `robots.txt` : tout est ouvert, et les robots des assistants IA sont
-  nommés pour que le choix soit lisible (instructions en tête du fichier pour refuser l'entraînement).
-- `llms.txt` : résumé du site pour les agents. Proposition communautaire, pas une norme ; Google
-  indique qu'il ne l'utilise pas pour la recherche ni pour ses réponses IA.
+- Chaque page : `title` et `description` propres à la langue, `lang`, URL canonique de la langue,
+  balises `hreflang` vers les trois versions et `x-default` vers le français, `og:locale` et ses
+  variantes, image de partage dans la langue, données structurées schema.org.
+- `sitemap.xml` : les 21 adresses, chacune avec ses variantes de langue.
+- `robots.txt` : tout est ouvert, robots des assistants IA nommés. `llms.txt` : résumé par langue.
 
 ## Sobriété
 
-- Fond noir, une seule police téléchargée : Anybody (licence OFL, `assets/anybody-OFL.txt`), réduite
-  aux caractères du français, largeur figée, graisse variable 100 à 800 : 15 ko. Le texte courant
-  utilise la police du système.
-- Chaque page affiche son poids, mesuré par le navigateur, et une estimation de l'énergie
-  (modèle Sustainable Web Design v4, 0,30 kWh par Go) : `assets/compteur.js`.
+- Fond noir, une seule police pour tout le site : Geist (licence OFL, `assets/geist-OFL.txt`),
+  réduite aux caractères du français, de l'anglais et de l'allemand, graisses 300 à 700 : 17 ko.
+- Pas de framework, pas de JavaScript de mise en page : menu mobile, sélecteur de langue et
+  détails repliables sont en HTML natif. Seul `assets/compteur.js` affiche le poids de la page et
+  une estimation de l'énergie (modèle Sustainable Web Design v4, 0,30 kWh par Go).
 
 ## Chiffres
 
-Le relevé de l'accueil et le graphique de `agents-ia.html` sont calculés depuis
-`greenrabbyte-lab/platform`, `qualite/livraisons.csv` (du 17 octobre au 5 novembre 2026, dépôts
-`platform`, `linky`, `keycloak-non-regression`). À rafraîchir quand le fichier avance.
-
-## Avant de publier
-
-- Vérifier avec l'employeur ce qui peut être publié ; aucune mention de l'employeur sur le site.
+`contenu/donnees.yml` reprend `greenrabbyte-lab/platform`, `qualite/livraisons.csv` (du 17 octobre
+au 5 novembre 2026, dépôts `platform`, `linky`, `keycloak-non-regression`). Le générateur vérifie
+que la série par jour donne bien le total. À rafraîchir quand le fichier avance.

@@ -1,0 +1,87 @@
+# Page « L'architecture ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "L'architecture d'un labo platform engineering à 70 € | Robalp"
+  description: "Les machines, le chemin des données et les principes d'un labo platform engineering monté pour environ 70 € : k3s, Terraform, Azure, rien d'exposé sur Internet."
+
+entete:
+  fil: "L'architecture"
+  titre: "L'architecture"
+  chapeau: "Un labo de platform engineering pour environ 70 €, sur du matériel qui dormait à la maison. Ce qui tourne, où, et ce qui ne sort jamais."
+
+schema:
+  maison:
+    titre: "À la maison"
+    elements:
+      - nom: "Compteur Linky et panneaux solaires"
+        detail: "lus en continu"
+      - nom: "VM de collecte, sur la Freebox"
+        detail: "allumée en permanence"
+      - nom: "PC de calcul recyclé"
+        detail: "allumé à la demande : k3s, GPU, modèle de langage"
+  liaison: "envoi volontaire et contrôlé"
+  azure:
+    titre: "Dans Azure"
+    elements:
+      - nom: "Stockage"
+        detail: "la couche partage : des kWh agrégés"
+      - nom: "Application en conteneur"
+        detail: "sans base de données ni secret"
+
+part:
+  titre: "Ce qui part dans Azure"
+  points:
+    - "Les kWh par jour, par heure et par appareil."
+    - "La prévision du lendemain."
+    - "Rien de plus fin que l'heure, aucun identifiant."
+
+reste:
+  titre: "Ce qui reste à la maison"
+  points:
+    - "Les mesures à la seconde."
+    - "L'inventaire des appareils, les factures."
+    - "L'assistant et son modèle de langage."
+
+materiel:
+  titre: "Le matériel"
+  colonnes: ["Machine", "Rôle", "Matériel"]
+  lignes:
+    - machine: "VM de collecte"
+      role: "Mesures, tableaux de bord"
+      materiel: "VM Debian 12 sur la Freebox, ARM64, 2 Go de mémoire"
+    - machine: "Disque de la Freebox"
+      role: "Stockage ajouté à la box"
+      materiel: "SSD PNY CS1030, 250 Go, M.2 NVMe PCIe Gen3"
+    - machine: "PC de calcul"
+      role: "Cluster k3s à un nœud, modèle de langage"
+      materiel: "PC de 2013 (Core i7-4770, 32 Go), carte NVIDIA Titan X de 12 Go"
+    - machine: "Lecteur de compteur"
+      role: "Téléinformation du Linky"
+      materiel: "clé USB Micro-Téléinfo V3.0, reliée au compteur par deux fils"
+
+chemin:
+  titre: "Le chemin des données"
+  etapes:
+    - titre: "Collecte"
+      texte: "La VM stocke les mesures en continu."
+    - titre: "Copie"
+      texte: "Le PC récupère les données, sans que la VM ait accès au PC."
+    - titre: "Transformation"
+      texte: "dbt sur DuckDB : bronze, argent, or, puis partage."
+    - titre: "Contrôle"
+      texte: "Les fichiers doivent respecter le contrat de partage."
+    - titre: "Envoi"
+      texte: "Un geste volontaire, avec manifeste et rapport."
+
+principes:
+  titre: "Les principes"
+  points:
+    - "Tout est code : OpenTofu, état chiffré, aucune modification manuelle durable."
+    - "Aucun port ouvert vers Internet depuis la maison."
+    - "Connexions sortantes uniquement : le cloud ne peut jamais appeler la maison."
+    - "Le minimum d'abord : une brique arrive quand un besoin réel l'exige."
+
+gpu:
+  titre: "Les contraintes d'un GPU recyclé"
+  texte: "La NVIDIA Titan X, de génération Maxwell (sortie en 2015), n'est plus prise en charge par les outils les plus récents. Le pilote est figé sur la dernière branche qui la gère, CUDA reste en version 12, et le serveur de modèle est compilé pour cette seule architecture. Le modèle de langage, ouvert, fait 7 à 8 milliards de paramètres, quantifié pour tenir dans ses 12 Go."

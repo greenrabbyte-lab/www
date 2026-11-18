@@ -1,0 +1,64 @@
+# Page « Les agents IA encadrés ».
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "Gouverner les agents IA sur une plateforme | Robalp"
+  description: "Un agent IA est un utilisateur de la plateforme comme un autre : une identité, des droits limités, un journal. Comment le labo encadre Claude, et ce que ça donne, mesuré."
+
+entete:
+  fil: "Les agents IA encadrés"
+  titre: "Les agents IA encadrés"
+  chapeau: "En platform engineering, un agent IA est un utilisateur comme un autre : une identité, des droits limités, un journal."
+
+entreprise:
+  titre: "En entreprise"
+  points:
+    - "Une identité par agent, révocable."
+    - "Lire largement, écrire par une porte étroite."
+    - "Des erreurs mesurées, comme pour une équipe."
+
+labo:
+  titre: "Au labo, depuis le 2 novembre 2026"
+  points:
+    - "Claude a un compte dédié, sans privilège."
+    - "Une seule porte d'écriture, chaque appel journalisé."
+    - "Tout déploiement est annoncé avant d'être appliqué."
+
+paliers:
+  titre: "Trois paliers"
+  seul:
+    titre: "Seul"
+    texte: "Fusionner ses pull requests vertes, appliquer un plan annoncé."
+  avec_un_humain:
+    titre: "Avec un humain"
+    texte: "Base de données, cluster, pare-feu, après un instantané."
+  jamais:
+    titre: "Jamais"
+    texte: "Un shell root, un secret, les données personnelles."
+
+mesure:
+  titre: "Le 2 novembre : {pr_delegation} pull requests en un jour"
+  texte: "Premier jour de la délégation encadrée. Du 17 octobre au 5 novembre 2026, sur trois dépôts."
+  pr: "pull requests fusionnées sur la période"
+  taux: "erreurs consignées pour 100 pull requests"
+  taux_prod: "vues en production, pour 100 pull requests"
+
+graphe:
+  titre_accessible: "Pull requests fusionnées par jour, du 17 octobre au 5 novembre 2026 : {pr_delegation} le 2 novembre, premier jour de la délégation encadrée"
+  repere: "délégation encadrée"
+  debut: "17 oct."
+  delegation: "2 nov."
+  fin: "5 nov."
+  legende: "Pull requests fusionnées par jour sur trois dépôts du labo, du 17 octobre au 5 novembre 2026. En jaune, depuis la mise en service de la délégation encadrée."
+
+assistant:
+  titre: "L'assistant local"
+  texte: "L'application de suivi électrique a un assistant qui répond en français, avec un modèle de langage qui tourne sur la carte graphique du labo. Il est traité comme un composant non fiable."
+  points:
+    - "Il ne calcule rien : il choisit une requête prédéfinie, et les chiffres viennent toujours de SQL."
+    - "Il n'a aucune sortie réseau, et seule l'application peut le joindre."
+    - "Pas de SQL libre, pas d'identifiant de base de données."
+
+journal:
+  titre: "Le journal des erreurs"
+  texte: "Chaque erreur de l'agent ou de la chaîne est consignée : la release qui l'a introduite, sa gravité, qui l'a détectée, le correctif. La ligne entre dans la même pull request que le correctif, et elle est relue à chaque rétrospective."

@@ -1,0 +1,53 @@
+# Page d'accueil.
+# Ne pas modifier les clés, ni les {repères} entre accolades, ni les balises HTML (attributs entre apostrophes).
+
+meta:
+  titre: "Le platform engineering, monté à la maison pour 70 € | Robalp"
+  description: "Portail en libre-service, golden paths, agents IA encadrés, observabilité : chaque méthode du platform engineering, prouvée sur un labo maison monté pour environ 70 €."
+
+accroche:
+  titre: "Le platform engineering, monté à la maison pour 70 €."
+  chapeau: "Portail en libre-service, golden paths, agents IA encadrés : chaque méthode du platform engineering, avec sa preuve qui tourne."
+  bouton_principal: "C'est quoi, en vrai ?"
+  bouton_secondaire: "Voir l'architecture"
+
+demo:
+  aria: "Déroulé d'une demande de bac à sable dans le portail"
+  titre: "Obtenir mon bac à sable"
+  source: "portail Port"
+  etapes: ["Demande reçue", "VM : démarrage", "VM : docker", "VM : az-cli", "VM : claude-code", "VM : dépôt", "VM : compétences"]
+  pret: "Prêt"
+  pastilles: ["environ 8 minutes", "sans ticket", "sans approbation"]
+  legende: "Les étapes réelles d'une demande, telles que le portail du labo les affiche."
+
+chiffres:
+  titre: "Ce que le labo a livré en {jours} jours"
+  pr: "pull requests fusionnées"
+  releases: "releases publiées"
+  taux: "erreurs consignées pour 100 pull requests"
+  periode: "Du 17 octobre au 5 novembre 2026, sur trois dépôts."
+  lien: "D'où viennent ces chiffres"
+
+methodes:
+  titre: "Quatre méthodes du platform engineering, chacune avec sa preuve"
+  portail:
+    titre: "Le portail développeur"
+    texte: "Un bac à sable prêt en 8 minutes environ, sans ticket."
+  golden-paths:
+    titre: "Les golden paths"
+    texte: "Douze critères vérifiés avant chaque mise en production."
+  agents-ia:
+    titre: "Les agents IA encadrés"
+    texte: "Claude livre dans un cadre : une seule porte, un journal, trois paliers."
+  observabilite:
+    titre: "L'observabilité"
+    texte: "Tout est mesuré, les erreurs comprises."
+
+budget:
+  somme: "70 €"
+  precision: "environ, pour tout le matériel acheté"
+  lien: "Toute l'architecture"
+
+appel:
+  texte: "Nouveau dans le platform engineering ? Commencez par l'essentiel."
+  bouton: "C'est quoi, en vrai ?"
