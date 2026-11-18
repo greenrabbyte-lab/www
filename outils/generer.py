@@ -735,6 +735,9 @@ def main():
         shutil.rmtree(sortie)
     shutil.copytree(RACINE / "assets", sortie / "assets")
     shutil.copy(RACINE / "CNAME", sortie / "CNAME")
+    # IndexNow : la clé est publique par construction, servie à la racine sous le nom <clé>.txt.
+    cle = (RACINE / "indexnow.txt").read_text(encoding="utf-8").strip()
+    (sortie / f"{cle}.txt").write_text(cle, encoding="utf-8")
     pages_html = {}
     for langue in LANGUES:
         dossier = sortie if langue == SOURCE else sortie / langue
