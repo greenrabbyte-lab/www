@@ -42,3 +42,12 @@ Les pages HTML ne sont plus versionnées : elles sont produites à la publicatio
 `contenu/donnees.yml` reprend `greenrabbyte-lab/platform`, `qualite/livraisons.csv` (du 17 octobre
 au 5 novembre 2026, dépôts `platform`, `linky`, `keycloak-non-regression`). Le générateur vérifie
 que la série par jour donne bien le total. À rafraîchir quand le fichier avance.
+
+## Référencement
+
+Le site est statique, sans JavaScript nécessaire à la lecture : moteurs et assistants IA lisent le
+même HTML. Le générateur écrit `robots.txt` (tout autorisé, robots IA nommés), `sitemap.xml` (trois
+langues, `hreflang`), `llms.txt` et les données structurées de chaque page. À chaque publication,
+`outils/indexnow.py` annonce les adresses aux moteurs qui suivent IndexNow (Bing, Yandex, Seznam,
+Naver, Yep) ; la clé de `indexnow.txt` est publique par construction. Google ne suit pas IndexNow :
+déclarer le site et son plan dans Search Console (propriétaire du domaine).
