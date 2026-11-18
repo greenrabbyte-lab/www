@@ -1,0 +1,30 @@
+# Vérifie sur le site en ligne ce dont les moteurs et les assistants IA ont besoin pour l'indexer
+# (robots.txt, plan du site, adresses canoniques, langues, llms.txt, clé IndexNow, redirections).
+# Après chaque publication, chaque lundi matin, et à la demande. Un échec envoie le courriel
+# d'échec de workflow de GitHub. Ne dit pas si un moteur a indexé : voir Search Console et Bing.
+name: indexation
+on:
+  workflow_run:
+    workflows: [pages]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: "41 6 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  verifier:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Laisser le temps a la publication de se propager
+        if: github.event_name == 'workflow_run'
+        run: sleep 90
+      - name: Indexation du site en ligne
+        run: python3 outils/verifier_indexation.py | tee -a "$GITHUB_STEP_SUMMARY"
